@@ -1,16 +1,10 @@
 const express = require("express");
-const ssoService = require('../services/sso.service');
+const userService = require('../services/user.service');
 
-exports.register = async (req, res) => {
+exports.getAllUsers = async (req, res) => {
     try {
-        if (!req.body.email || !req.body.password) {
-            return res.send({
-                status: 400,
-                message: 'Error creating',
-            });
-        }
 
-        const resData = await ssoService.register(req.body);
+        const resData = await userService.getAllUsers();
         return res.json(resData);
     } catch (error) {
         console.log(error);
@@ -21,10 +15,11 @@ exports.register = async (req, res) => {
     }
 };
 
-exports.login = async (req, res) => {
+exports.deleteUser = async (req, res) => {
     try {
-
-        const resData = await ssoService.login(req.body);
+        const userId = req.params.id;
+        console.log(userId);
+        const resData = await userService.deleteUser(userId);
         return res.json(resData);
     } catch (error) {
         console.log(error);
@@ -34,4 +29,3 @@ exports.login = async (req, res) => {
         });
     }
 };
-
