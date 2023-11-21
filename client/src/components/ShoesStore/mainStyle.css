@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-heading {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-heading h1 {
+    font-weight: bold;
+}
+
+.carousel-inner img {
+    max-height: 500px;
+    /* Adjust the height value as needed */
+    object-fit: cover;
+}
