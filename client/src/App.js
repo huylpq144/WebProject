@@ -1,20 +1,14 @@
 import './App.css';
-import axios from "axios"
-import { useEffect, useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import ShoesStore from './components/ShoesStore/ShoesStore';
+import Router from './routes/Router';
+
 
 function App() {
-  const [listOfPosts, setListOfPosts] = useState([]);
-  useEffect(() => {
-    axios.get("http://localhost:3001/api").then((response) => {
-      setListOfPosts(response.data);
-    });
-  }, [])
   return (
-  <div className="App">
-    {listOfPosts.map((value, key) => {
-      return <div>{value.title} </div>;
-    })}
-  </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
