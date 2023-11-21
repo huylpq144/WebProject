@@ -1,0 +1,12 @@
+.card-body p {
+    margin-bottom: 5px;
+}
+
+.card .product-detail-title {
+    height: 30px;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+}
