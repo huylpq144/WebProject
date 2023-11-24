@@ -3,12 +3,25 @@ const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require('uuid');
 const db = require("../models");
 const { use } = require("../routers/Posts");
+const {Op} = require("sequelize");
+
 
 exports.register = async(userJson) => {
     const User = await db.User;
+    const Cart = await db.Cart;
+
+    var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    const isCheckEmail = reg.test(userJson.email);
+    if (!userJson.username || !userJson.password || !userJson.email) {
+        throw new Error("Input invalid")
+    }
+    if (!isCheckEmail) {
+        throw new Error("Email invalid")
+    }
     const user = await User.findOne({
         where: {
-            username: userJson.username,
+            [Op.or]: [{email: userJson.email}, 
+                    {username: userJson.username}]
         }
     });
     if(user) {
@@ -19,18 +32,27 @@ exports.register = async(userJson) => {
     }
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(userJson.password, salt)
+    const userId = uuidv4();
 
     const body = {
         email: userJson.email,
         username: userJson.username,
+        name: userJson.name,
+        tel: userJson.tel,
+        role: userJson.role,
         password: hashed
       };
       
     await User.create({
-        userId: uuidv4(),
+        userId: userId,
         tokenId: uuidv4(),
         ...body,
     });
+
+    await Cart.create({
+        id: uuidv4(),
+        userId: userId
+    })
 
     return {
         status: 200,
