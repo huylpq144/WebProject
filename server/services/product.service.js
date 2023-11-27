@@ -28,13 +28,33 @@ exports.createProduct = async(userId, dataProd) => {
     }
 };
 
-exports.getAllProduct = async () => {
+exports.getAllProduct = async (categoryId) => {
     const Product = await db.Product;
-
-    const product = await Product.findAll();
+    let product;
+    if (categoryId == "") {
+        product = await Product.findAll();
+    }
+    else {
+        product = await Product.findAll({
+            where: {
+                cateId: categoryId
+            }
+        });
+    }
     
     return {
         status: 200,
         rows: product
+    }
+}
+
+exports.getListCategory = async() => {
+    const ProductCategories = await db.ProductCategories;
+
+    const category = await ProductCategories.findAll();
+
+    return {
+        status: 200,
+        rows: category
     }
 }
