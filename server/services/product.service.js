@@ -24,7 +24,7 @@ exports.createProduct = async(userId, dataProd) => {
     })
     return {
         status: 200,
-        message: "create product categories successfully"
+        message: "create product successfully"
     }
 };
 
