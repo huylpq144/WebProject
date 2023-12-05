@@ -24,7 +24,7 @@ export default class ProductList extends Component {
                 <div key={element.id} className="col">
                     <ProductItem
                         item={element}
-                        getProductDetail={this.props.getProductDetail} />
+                    />
                 </div>
             );
         });

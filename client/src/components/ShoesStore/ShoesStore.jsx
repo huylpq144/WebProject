@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import productsData from "../../data/data.json"
 import "./mainStyle.css"
 import ProductList from '../ProductList/ProductList'
@@ -7,28 +7,26 @@ import ProductDetail from '../ProductDetail/ProductDetail'
 
 
 export default function ShoesStore() {
-    const [productDetail, setProductDetail] = useState(productsData[0]);
+    // convert all of these state below to redux
 
+    // const [productDetail, setProductDetail] = useState(productsData[0]);
+    // const getProductDetail = (product) => {
+    //     setProductDetail(product);
+    // };
+    // const [cartList, setCartList] = useState([]);
+    // const addToCart = (product) => {
+    //     const currentCart = [...cartList];
+    //     const index = currentCart.findIndex((element) => element.id === product.id);
 
-    const getProductDetail = (product) => {
-        setProductDetail(product);
-    };
+    //     if (index !== -1) {
+    //         currentCart[index].cartQuantity++;
+    //     } else {
+    //         const newProduct = { ...product, cartQuantity: 1 };
+    //         currentCart.push(newProduct);
+    //     }
 
-    const [cartList, setCartList] = useState([]);
-
-    const addToCart = (product) => {
-        const currentCart = [...cartList];
-        const index = currentCart.findIndex((element) => element.id === product.id);
-
-        if (index !== -1) {
-            currentCart[index].cartQuantity++;
-        } else {
-            const newProduct = { ...product, cartQuantity: 1 };
-            currentCart.push(newProduct);
-        }
-
-        setCartList(currentCart);
-    };
+    //     setCartList(currentCart);
+    // };
 
     return (
         <div>
@@ -89,8 +87,11 @@ export default function ShoesStore() {
                 </div>
             </div>
 
-            <ProductList productsData={productsData} getProductDetail={getProductDetail} />
-            <ProductDetail productDetail={productDetail} />
+            {/* <ProductList productsData={productsData} getProductDetail={getProductDetail} />
+            <ProductDetail productDetail={productDetail} /> */}
+            <ProductList productsData={productsData} />
+            <ProductDetail />
+
         </div>
     );
 }

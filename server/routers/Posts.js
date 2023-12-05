@@ -1,5 +1,5 @@
 const express = require("express");
-const {Posts} = require('../models');
+const { Posts } = require('../models');
 const sso = require('../controllers/sso.controller')
 const userRight = require('../controllers/user.controller')
 const product = require('../controllers/product.controller')
@@ -48,7 +48,7 @@ routers.post('/register', sso.register);
 routers.post('/login', sso.login);
 
 //USER
-routers.get('/get-all-users',middleware.checkAuthAndToken, userRight.getAllUsers)
+routers.get('/get-all-users', middleware.checkAuthAndToken, userRight.getAllUsers)
 routers.delete('/delete-user/:id', middleware.checkTokenAdmin, userRight.deleteUser)
 
 //PRODUCT

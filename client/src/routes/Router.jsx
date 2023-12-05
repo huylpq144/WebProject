@@ -1,9 +1,11 @@
 import React from 'react'
-import { Navigate, useRoutes } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 import Homelayout from '../components/Layout/Homelayout';
 import ShoesStore from '../components/ShoesStore/ShoesStore';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
+import Cart from '../components/Cart/Cart';
+import Checkout from '../components/Checkout/Checkout';
 
 
 export default function Router() {
@@ -24,6 +26,14 @@ export default function Router() {
                 {
                     path: "/signup",
                     element: <Signup />
+                },
+                {
+                    path: "/cart",
+                    element: <Cart />
+                },
+                {
+                    path: "/checkout",
+                    element: <Checkout />
                 }
 
             ]

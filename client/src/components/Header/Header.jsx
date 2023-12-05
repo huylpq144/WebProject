@@ -1,15 +1,18 @@
-import React, { Component } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./HeaderStyle.css"
-import Cart from '../Cart/Cart';
+// import { addToCartAction } from '../../store/actions/addToCartAction';
+import { useSelector } from 'react-redux';
+// import Cart from '../Cart/Cart';
 
 export default function Header() {
     const navigate = useNavigate();
+    const size = useSelector(state => state.addToCartReducer.size);
     return (
         <div id="storeHeader">
             <nav className="navbar navbar-expand-lg bg-dark">
                 <div className="container-fluid">
-                    <a onClick={() => navigate("/")} className="navbar-brand" href="#">
+                    <a onClick={() => navigate("/")} className="navbar-brand" href="/">
                         FashionHub
                     </a>
                     <button
@@ -38,17 +41,17 @@ export default function Header() {
                                     </a>
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Đầm Dài
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Đầm Ngắn
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Đầm Ôm
                                             </a>
                                         </li>
@@ -68,27 +71,27 @@ export default function Header() {
                                     </a>
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Jeans
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Quần Váy
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
-                                                Váy Chứ A
+                                            <a className="dropdown-item w-100 px-4" href="#">
+                                                Váy Chữ A
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Quần Short
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Quần Dài
                                             </a>
                                         </li>
@@ -108,17 +111,17 @@ export default function Header() {
                                     </a>
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Áo Dài
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Áo Croptop
                                             </a>
                                         </li>
                                         <li>
-                                            <a className="dropdown-item" href="#">
+                                            <a className="dropdown-item w-100 px-4" href="#">
                                                 Áo Thun
                                             </a>
                                         </li>
@@ -128,6 +131,14 @@ export default function Header() {
                             <li className="nav-item space-s"></li>
                         </ul>
                     </div>
+                    <button onClick={() => navigate("/cart")} id='shoppingCart' className="dropdown-item position-relative" type="button">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style={{ fontSize: '10px' }}>
+                            {size}
+                        </span>
+                    </button>
+
                 </div>
                 <form className="d-flex search-form" role="search">
                     <input
@@ -140,6 +151,7 @@ export default function Header() {
                         <i className="fa-solid fa-magnifying-glass" />
                     </button>
                 </form>
+
                 {/* <Cart cartList={this.props.cartList} /> */}
                 <div id='user-actions' className="btn-group">
                     <button
@@ -162,13 +174,10 @@ export default function Header() {
                                 <i className="fa-solid fa-user-plus" style={{ color: '#000000' }} /> Signup
                             </button>
                         </li>
-                        <li>
-                            <button className="dropdown-item" type="button">
-                                <i className="fa-solid fa-cart-shopping" style={{ color: '#000000' }} /> Your cart
-                            </button>
-                        </li>
+
                     </ul>
                 </div>
+
             </nav>
         </div>
 
