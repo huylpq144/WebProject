@@ -20,3 +20,18 @@ exports.register = async (req, res) => {
         });
     }
 };
+
+exports.login = async (req, res) => {
+    try {
+
+        const resData = await ssoService.login(req.body);
+        return res.json(resData);
+    } catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+};
+

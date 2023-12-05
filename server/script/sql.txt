@@ -68,3 +68,41 @@ CREATE TABLE `webproject`.`payment` (
   `deleted_at` DATETIME NULL,
   PRIMARY KEY (`id`));
 
+
+ALTER TABLE `webproject`.`user` 
+ADD COLUMN `name` VARCHAR(255) NULL AFTER `username`;
+
+
+CREATE TABLE `webproject`.`cart` (
+  `id` VARCHAR(255) NOT NULL,
+  `user_id` VARCHAR(255) NOT NULL,
+  `total_quantity` INT NULL,
+  `total_price` INT NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`, `user_id`));
+
+
+  CREATE TABLE `webproject`.`cart_item` (
+  `id` VARCHAR(255) NOT NULL,
+  `cart_id` VARCHAR(255) NOT NULL,
+  `product_id` VARCHAR(255) NOT NULL,
+  `quantity` INT NULL,
+  `price` INT NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`, `cart_id`, `product_id`));
+
+
+CREATE TABLE `webproject`.`order` (
+  `id` VARCHAR(255) NOT NULL,
+  `user_id` VARCHAR(255) NULL,
+  `cart_id` VARCHAR(255) NULL,
+  `total_amount` INT NULL,
+  `status` TINYINT NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `deleted_at` DATETIME NULL,
+  PRIMARY KEY (`id`));
