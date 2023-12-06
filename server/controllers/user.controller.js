@@ -29,3 +29,32 @@ exports.deleteUser = async (req, res) => {
         });
     }
 };
+
+exports.editProfile = async (req, res) => {
+    try {
+        const userId = req.user.userId;
+        const resData = await userService.editProfile(userId, req.body);
+        return res.json(resData);
+    } catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+};
+
+
+exports.getUserProfile = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const resData = await userService.getUserProfile(userId);
+        return res.json(resData);
+    } catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+};

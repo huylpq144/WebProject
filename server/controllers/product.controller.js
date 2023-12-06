@@ -34,7 +34,23 @@ exports.createProduct = async (req, res) => {
 
 exports.getAllProduct = async (req, res) => {
     try {
-        const resData = await prodService.getAllProduct();
+        const {categoryId} = req.body;
+        const resData = await prodService.getAllProduct(categoryId);
+        return res.json(resData);    
+    } 
+    catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}
+
+
+exports.getListCategory = async (req, res) => {
+    try {
+        const resData = await prodService.getListCategory();
         return res.json(resData);    
     } 
     catch (error) {

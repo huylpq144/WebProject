@@ -44,5 +44,8 @@ db.User = require("./user")(sequelize, Sequelize.DataTypes);
 db.ProductCategories = require("./product_categories")(sequelize, Sequelize.DataTypes);
 db.Product = require("./product")(sequelize, Sequelize.DataTypes);
 db.Payment = require("./payment")(sequelize, Sequelize.DataTypes);
+db.Cart = require("./cart")(sequelize, Sequelize.DataTypes);
+db.CartItem = require("./cart_item")(sequelize, Sequelize.DataTypes);
+db.Order = require("./order")(sequelize, Sequelize.DataTypes);
 
 module.exports = db;
