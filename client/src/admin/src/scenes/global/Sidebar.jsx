@@ -17,7 +17,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({ title, to, icon, selected, setSelected, button }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -40,6 +40,8 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const buttonBgColor = theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000'; // Example colors
+  const buttonTextColor = theme.palette.mode === 'dark' ? '#000000' : '#FFFFFF'; // Adjust text color accordingly
 
   return (
     <Box
@@ -114,9 +116,14 @@ const Sidebar = () => {
                 </Typography>
               </Box>
               <Box textAlign="center">
-              <Button color="primary">
-                Logout
-              </Button>
+              <Button
+                  style={{
+                    backgroundColor: buttonBgColor,
+                    color: buttonTextColor,
+                  }}
+                >
+                  Log out
+                </Button>
             </Box>
             </Box>
           )}
