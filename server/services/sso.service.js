@@ -42,9 +42,9 @@ exports.register = async (userJson) => {
     const body = {
         email: userJson.email,
         username: userJson.username,
-        name: userJson.name,
-        tel: userJson.tel,
-        role: userJson.role,
+        // name: userJson.name,
+        // tel: userJson.tel,
+        // role: userJson.role,
         password: hashed
     };
 
@@ -62,7 +62,6 @@ exports.register = async (userJson) => {
     return {
         status: 200,
         message: 'User created!',
-
     };
 };
 

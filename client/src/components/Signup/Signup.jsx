@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./signup_style.css"
 import $ from "jquery"
 import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Signup() {
@@ -9,6 +10,8 @@ export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [retypePassword, setRetypePassword] = useState("");
+
+    const navigate = useNavigate();
 
     const handleSignup = async (e) => {
         e.preventDefault();
@@ -42,7 +45,7 @@ export default function Signup() {
         }
         if (isValid) {
             hideAllError();
-            alert("Signup successfully");
+            // alert("Signup successfully");
             const UserData = {
                 username: username,
                 email: email,
@@ -50,10 +53,12 @@ export default function Signup() {
             };
             try {
                 const response = await axios.post("http://localhost:3001/api/register", UserData);
-                if (response.status === 200) {
-                    console.log("Đăng ký thành công");
+                if (response.data.status === 400) {
+                    showError("alertName", "(*) Username already existed!");
+                    return;
                 } else {
-                    console.log("Đăng ký thất bại");
+                    navigate("/login");
+                    return;
                 }
             } catch (error) {
                 console.log(error);
