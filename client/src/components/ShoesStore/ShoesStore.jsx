@@ -1,5 +1,6 @@
 import React from 'react'
 import productsData from "../../data/data.json"
+import newProductsData from "../../data/product.json"
 import "./mainStyle.css"
 import ProductList from '../ProductList/ProductList'
 import ProductDetail from '../ProductDetail/ProductDetail'
@@ -7,27 +8,6 @@ import ProductDetail from '../ProductDetail/ProductDetail'
 
 
 export default function ShoesStore() {
-    // convert all of these state below to redux
-
-    // const [productDetail, setProductDetail] = useState(productsData[0]);
-    // const getProductDetail = (product) => {
-    //     setProductDetail(product);
-    // };
-    // const [cartList, setCartList] = useState([]);
-    // const addToCart = (product) => {
-    //     const currentCart = [...cartList];
-    //     const index = currentCart.findIndex((element) => element.id === product.id);
-
-    //     if (index !== -1) {
-    //         currentCart[index].cartQuantity++;
-    //     } else {
-    //         const newProduct = { ...product, cartQuantity: 1 };
-    //         currentCart.push(newProduct);
-    //     }
-
-    //     setCartList(currentCart);
-    // };
-
     return (
         <div>
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
@@ -89,7 +69,7 @@ export default function ShoesStore() {
 
             {/* <ProductList productsData={productsData} getProductDetail={getProductDetail} />
             <ProductDetail productDetail={productDetail} /> */}
-            <ProductList productsData={productsData} />
+            <ProductList productsData={productsData} newProductsData={newProductsData} />
             <ProductDetail />
 
         </div>

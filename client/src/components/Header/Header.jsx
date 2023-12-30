@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import "./HeaderStyle.css"
 // import { addToCartAction } from '../../store/actions/addToCartAction';
 import { useSelector } from 'react-redux';
-// import Cart from '../Cart/Cart';
 
 export default function Header() {
     const navigate = useNavigate();

@@ -3,10 +3,11 @@ const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require('uuid');
 const db = require("../models");
 const { use } = require("../routers/Posts");
-const {Op} = require("sequelize");
+const { Op } = require("sequelize");
 
 
-exports.register = async(userJson) => {
+exports.register = async (userJson) => {
+    console.log(userJson);
     const User = await db.User;
     const Cart = await db.Cart;
 
@@ -18,17 +19,21 @@ exports.register = async(userJson) => {
     if (!isCheckEmail) {
         throw new Error("Email invalid")
     }
+    // console.log(userJson.email, userJson.username);
     const user = await User.findOne({
         where: {
-            [Op.or]: [{email: userJson.email}, 
-                    {username: userJson.username}]
+            [Op.or]: [{ email: userJson.email },
+            { username: userJson.username }]
         }
     });
-    if(user) {
+    if (user) {
+        console.log("Existed user");
         return {
             status: 400,
             message: 'Account already exist!'
         }
+    } else {
+        console.log("new user");
     }
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(userJson.password, salt)
@@ -41,8 +46,8 @@ exports.register = async(userJson) => {
         tel: userJson.tel,
         role: userJson.role,
         password: hashed
-      };
-      
+    };
+
     await User.create({
         userId: userId,
         tokenId: uuidv4(),
@@ -61,7 +66,7 @@ exports.register = async(userJson) => {
     };
 };
 
-exports.login = async(userJson) => {
+exports.login = async (userJson) => {
     const User = await db.User;
     const user = await User.findOne({
         where: {
@@ -72,7 +77,7 @@ exports.login = async(userJson) => {
         throw new Error("username invalid");
     }
     const validPassword = await bcrypt.compare(userJson.password, user.password);
-    
+
     if (!validPassword) {
         throw new Error("password invalid");
     }
@@ -82,10 +87,10 @@ exports.login = async(userJson) => {
             email: user.email,
             role: user.role
         },
-        "secretKey",
-        { expiresIn: "1d"}
+            "secretKey",
+            { expiresIn: "1d" }
         )
-        
+
         return {
             status: 200,
             data: user,

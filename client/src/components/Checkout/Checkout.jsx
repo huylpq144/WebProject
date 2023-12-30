@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./CheckoutStyle.css"
 
 export default function Checkout() {
+    const navigate = useNavigate();
     return (
-        <div id='checkoutPage' className="wrapper">
+        <div id='checkoutPage' className="wrapper" style={{ backgroundColor: "#F1D4E5" }}>
             <div className="container">
                 <form action>
                     <h1>
@@ -57,7 +59,7 @@ export default function Checkout() {
                     </div>
                     <div className="btns">
                         <button>Purchase</button>
-                        <button>Back to cart</button>
+                        <button onClick={() => navigate("/")}>Back to cart</button>
                     </div>
                 </form>
             </div>

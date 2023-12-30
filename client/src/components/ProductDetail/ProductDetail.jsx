@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./ProductDetailStyle.css"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCartAction } from '../../store/actions/addToCartAction';
 
 export default function ProductDetail() {
     const pDetail = useSelector((state) => state.productDetailReducer.productDetail);
     // console.log(pDetail);
     const { name, price, description, shortDescription, quantity, image } = pDetail;
+    const dispatch = useDispatch();
+    const addToCartHandler = () => {
+        dispatch(addToCartAction(pDetail));
+    }
+    const [notification, setNotification] = useState(false);
+    const showNotification = () => {
+        setNotification(true);
+        setTimeout(() => {
+            setNotification(false);
+        }, 3000);
+    }
+
     return (
         <div>
             <div className="modal fade" id="product-detail" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -35,8 +48,26 @@ export default function ProductDetail() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Add to cart</button>
+                            <button type="button" className="btn btn-primary"
+                                onClick={() => {
+                                    showNotification();
+                                    addToCartHandler();
+                                }}>Add to cart</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="position-fixed top-0 end-0 p-3" style={{ zIndex: 11 }}>
+                <div id="liveToast"
+                    className={`toast fade ${notification ? 'show' : 'hide'}`}
+                    role="alert" aria-live="assertive" aria-atomic="true">
+                    <div className="toast-header">
+                        <strong className="me-auto">Added one product</strong>
+                        <small>Just now</small>
+                        <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close" />
+                    </div>
+                    <div className="toast-body">
+                        You just added {name} to your cart
                     </div>
                 </div>
             </div>

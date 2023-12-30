@@ -3,6 +3,7 @@ const ssoService = require('../services/sso.service');
 
 exports.register = async (req, res) => {
     try {
+        // console.log(req.body);
         if (!req.body.email || !req.body.password) {
             return res.send({
                 status: 400,
@@ -23,7 +24,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     try {
-
+        console.log(req.body);
         const resData = await ssoService.login(req.body);
         return res.json(resData);
     } catch (error) {

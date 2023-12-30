@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Arimo');
-
 #checkoutPage {
     display: flex;
     justify-content: center;
@@ -11,7 +9,7 @@
     display: flex;
     justify-content: center;
     font-family: "Arimo";
-    background-color: #eb9478;
+    background-color: #F1D4E5;
     -webkit-box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
     -moz-box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
     box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
@@ -62,13 +60,13 @@
 
 #checkoutPage label {
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 20px;
     letter-spacing: 2px;
     color: #8e2807;
 }
 
 #checkoutPage h1 {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 10px;
     color: #493b76;
     letter-spacing: 1px;
@@ -105,13 +103,12 @@
 
 #checkoutPage .btns {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
 }
 
 #checkoutPage .btns button {
     margin: 3px 0;
-    height: 30px;
+    height: 60px;
     width: 40%;
     color: #cfc9e1;
     background-color: #4a3b76;
@@ -119,6 +116,8 @@
     border: 0;
     border-radius: .3rem;
     letter-spacing: 2px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #checkoutPage .btns button:hover {

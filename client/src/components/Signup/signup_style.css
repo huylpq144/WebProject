@@ -119,3 +119,8 @@
 #storeSignup .country-select i {
     margin-right: 5px;
 }
+
+#storeSignup span {
+    font-size: 15px;
+    color: #e74c3c;
+}
