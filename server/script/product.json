@@ -4,7 +4,7 @@
         "describe": "Họa tiết: Trơn\nPhong cách: Thanh lịch",
         "price": 550000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/luci9938_0b14dd8090f148bea681f225c69fe922_1024x1024.jpg"
@@ -14,7 +14,7 @@
         "describe": "Họa tiết: Nhiều tầng\nPhong cách: Thanh lịch",
         "price": 667000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/5o8a0011_d0890573a26a445f98dc3b0b560d3888_1024x1024.jpg"
@@ -24,7 +24,7 @@
         "describe": "Họa tiết: Ren, hoa\nPhong cách: Tiểu thư, nàng thơ",
         "price": 529000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfm4xtdzzyid13"
@@ -34,7 +34,7 @@
         "describe": "Họa tiết: Hoa cúc\nPhong cách: Tiểu thư, nàng thơ",
         "price": 472000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/955c595daa18d91a7613a6387a9f017c"
@@ -44,7 +44,7 @@
         "describe": "Họa tiết: Hoa mẫu đơn\nPhong cách: Tiểu thư, nàng thơ",
         "price": 399000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfmf621g3r7993"
@@ -54,7 +54,7 @@
         "describe": "Họa tiết: Hoa nhí\nPhong cách: Tiểu thư, nàng thơ",
         "price": 335000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/fd999ac3eb0f2b2d283355bbad9a1133"
@@ -64,7 +64,7 @@
         "describe": "Họa tiết: Hoa nhí\nPhong cách: Tiểu thư, nàng thơ",
         "price": 438000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lhshwjk423ep78"
@@ -74,7 +74,7 @@
         "describe": "Họa tiết: Hoa nhí xanh\nPhong cách: Tiểu thư, nàng thơ, thanh lịch",
         "price": 547000,
         "inventory": 20,
-        "cateId": "Đầm dài",
+        "cateId": "abb87ad1-9e75-4ba9-afc6-9461bb22e0a9",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/e4e1c1ea94e15a3cd6abce0a922e4137"
@@ -85,7 +85,7 @@
         "describe": "Họa tiết: Trơn, ren\nPhong cách: Nhí nhảnh, năng động, quyến rũ",
         "price": 267000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://kidostudiowear.com/upload/z4405189273686_6c32f9cd29de4706d9af9ccc62fd4ed6_-13-06-2023-12-44-06.JPG"
@@ -95,7 +95,7 @@
         "describe": "Họa tiết: Hoa hồng tím, 2 tầng\nPhong cách: Nhí nhảnh, năng động, quyến rũ",
         "price": 455000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/8af73264d38c7569ac006c07e63cd23e"
@@ -105,7 +105,7 @@
         "describe": "Họa tiết: Váy hoa nhí, 2 tầng\nPhong cách: Nhí nhảnh, năng động, quyến rũ",
         "price": 509000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmiddtf5wkpr79"
@@ -115,7 +115,7 @@
         "describe": "Họa tiết: Jeans, cut-outs\nPhong cách: Nhí nhảnh, năng động, quyến rũ",
         "price": 709000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/elpis7716_copy_4c20ff0209da4ee399a2318ed34c397b_1024x1024.jpg"
@@ -125,7 +125,7 @@
         "describe": "Họa tiết: Lụa, trơn\nPhong cách: Nhí nhảnh, năng động, quyến rũ",
         "price": 809000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/resize_part_20438_ce4148781c014303a6daccb6b33778bc_1024x1024.jpg"
@@ -135,7 +135,7 @@
         "describe": "Họa tiết: Hoa, ren\nPhong cách: Nhí nhảnh, năng động, quyến rũ",
         "price": 314000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/sg-11134201-22120-jp1fj1oxtjkvc2"
@@ -145,7 +145,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Tiểu thư, năng động, quyến rũ",
         "price": 547000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/luci0680_02c17f8ffd82425db437b2a08d31605e_1024x1024.jpg"
@@ -155,7 +155,7 @@
         "describe": "Họa tiết: Hoa nhí, nhiều tầng \nPhong cách: Tiểu thư, năng động, quyến rũ",
         "price": 628000,
         "inventory": 20,
-        "cateId": "Đầm ngắn",
+        "cateId": "5a7f95bb-4aaf-453e-8a7a-a99fe40a5e0c",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ln166wkz2cz79d"
@@ -165,7 +165,7 @@
         "describe": "Họa tiết: Đính nơ \nPhong cách: Quý phái, quyến rũ",
         "price": 1258000,
         "inventory": 20,
-        "cateId": "Đầm ôm",
+        "cateId": "e65f80b3-75e4-4dfe-ba22-6dfc67e19c6f",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/elpis5830_copy_2_804b665ee0b44097b12248d020d4f14b_1024x1024.jpg"
@@ -175,7 +175,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Quý phái, quyến rũ",
         "price": 1374000,
         "inventory": 20,
-        "cateId": "Đầm ôm",
+        "cateId": "e65f80b3-75e4-4dfe-ba22-6dfc67e19c6f",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/5o8a3082_09cca8b71f1a41d98bb651529f56b43b_1024x1024.jpg"
@@ -185,7 +185,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Quý phái, quyến rũ",
         "price": 1555000,
         "inventory": 20,
-        "cateId": "Đầm ôm",
+        "cateId": "e65f80b3-75e4-4dfe-ba22-6dfc67e19c6f",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000361760/product/4-_1__ae01d05f1a5f486b906dc8603ca2f111_master.jpg"
@@ -195,7 +195,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Quý phái, quyến rũ",
         "price": 2454000,
         "inventory": 20,
-        "cateId": "Đầm ôm",
+        "cateId": "e65f80b3-75e4-4dfe-ba22-6dfc67e19c6f",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/elpis5564_copy_975a8183b25f4684a41d51841424f49e_1024x1024.jpg"
@@ -205,7 +205,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 289000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2305QJUL5361801/be277c24-b143-4c18-b6f0-775fa954cbc2.jpg"
@@ -215,7 +215,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 689000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://laminapparel.com/wp-content/uploads/2022/08/13.jpg"
@@ -225,7 +225,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 789000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://laminapparel.com/wp-content/uploads/2021/06/SALE-ITEMS-41-1-scaled.jpg"
@@ -235,7 +235,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 680000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://laminapparel.com/wp-content/uploads/2022/08/9.jpg"
@@ -245,7 +245,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 380000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2307QJUS5362601/0fdd005a-54a2-416c-b2fe-2d167a13f586.jpg"
@@ -255,7 +255,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 1389000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/elpis7516_copy_75c04ce4d39c4699b18223fbfa26a9d8_1024x1024.jpg"
@@ -265,7 +265,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 2556000,
         "inventory": 20,
-        "cateId": "Jeans",
+        "cateId": "2469c4cc-dc49-4424-93ba-cf82b29dc03e",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/elpis7594_copy_af558adc7c4247e9af5b874007aaa969_1024x1024.jpg"
@@ -275,7 +275,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 299000,
         "inventory": 20,
-        "cateId": "Quần váy",
+        "cateId": "88e27681-6a74-47fa-9cf0-49981d34baeb",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2306QVU*8881201/69065e4a-456c-4f82-8480-50a6f63a364a.jpg"
@@ -285,7 +285,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 315000,
         "inventory": 20,
-        "cateId": "Quần váy",
+        "cateId": "88e27681-6a74-47fa-9cf0-49981d34baeb",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2306QVU*8881201/dd29a684-926e-4706-bea2-f0820edae731.jpg"
@@ -295,7 +295,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 315000,
         "inventory": 20,
-        "cateId": "Quần váy",
+        "cateId": "88e27681-6a74-47fa-9cf0-49981d34baeb",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2305QVU*8881701/eff86136-d528-4ebd-8646-655b702f8a4a.jpg"
@@ -305,7 +305,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 266000,
         "inventory": 20,
-        "cateId": "Váy chữ A",
+        "cateId": "fa7dbfdb-ed58-42c3-b0b3-2a640e12bdf3",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2305CVUA8882201/b3697fa0-4461-4506-823a-34f60406d7b5.jpg"
@@ -315,7 +315,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 289000,
         "inventory": 20,
-        "cateId": "Váy chữ A",
+        "cateId": "fa7dbfdb-ed58-42c3-b0b3-2a640e12bdf3",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2307CVUA8881401/97ae091a-9da7-403f-b29b-cadb8759ca8f.jpg"
@@ -325,7 +325,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 256000,
         "inventory": 20,
-        "cateId": "Váy chữ A",
+        "cateId": "fa7dbfdb-ed58-42c3-b0b3-2a640e12bdf3",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2308CVUA8880701/196149ee-5a11-474e-85c2-6bafdaf09894.jpg"
@@ -335,7 +335,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 199000,
         "inventory": 20,
-        "cateId": "Quần Short",
+        "cateId": "7eff5c96-17c0-4fd5-87c9-4e86f295c430",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2308SVU*8880701/b45da722-ef3b-4b2d-ad5e-4c76d564fa45.jpg"
@@ -345,7 +345,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 169000,
         "inventory": 20,
-        "cateId": "Quần Short",
+        "cateId": "7eff5c96-17c0-4fd5-87c9-4e86f295c430",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2306SKU*8880701/1c20b2a0-88c9-4e28-9bd2-07b0ac234976.jpg"
@@ -355,7 +355,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 176000,
         "inventory": 20,
-        "cateId": "Quần Short",
+        "cateId": "7eff5c96-17c0-4fd5-87c9-4e86f295c430",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134201-23030-522s22sfvfov82"
@@ -365,7 +365,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 139000,
         "inventory": 20,
-        "cateId": "Quần Short",
+        "cateId": "7eff5c96-17c0-4fd5-87c9-4e86f295c430",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-50009109-12c814318526b4eff27621512f9f784e"
@@ -375,7 +375,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 129000,
         "inventory": 20,
-        "cateId": "Quần Dài",
+        "cateId": "3ac97a94-5241-4daf-8847-b472420e89c7",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2311QBU*8882605/824e2cae-737a-412b-a936-484c6e954d53.jpg"
@@ -385,7 +385,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 229000,
         "inventory": 20,
-        "cateId": "Quần Dài",
+        "cateId": "3ac97a94-5241-4daf-8847-b472420e89c7",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2311QTUS8882601/3511f596-5160-46f3-938f-1ed407b0bf9e.jpg"
@@ -395,7 +395,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 309000,
         "inventory": 20,
-        "cateId": "Quần Dài",
+        "cateId": "3ac97a94-5241-4daf-8847-b472420e89c7",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2311QBU*8882605/824e2cae-737a-412b-a936-484c6e954d53.jpg"
@@ -405,7 +405,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 309000,
         "inventory": 20,
-        "cateId": "Quần Dài",
+        "cateId": "3ac97a94-5241-4daf-8847-b472420e89c7",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2302QBU5812501/ff74e74e-1cd7-492c-9449-911b3ce11142.jpg"
@@ -415,7 +415,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 1777000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/luci8524_e131e7d2127c4a0b9b76ec5906154879_1024x1024.jpg"
@@ -425,7 +425,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 3557000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/luci9639_e53af134facd47fbae6acb85c1bff03e_fe887b381a4b41a29767aa73e1711fc8_1024x1024.jpg"
@@ -435,7 +435,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 4657000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/luci9751_7e61075e81ae4c2d8546d8b5d0460ba8_1024x1024.jpg"
@@ -445,7 +445,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 5897000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000314103/product/luci9553_8f199a09198c438995d4f30e700d3dd8_1024x1024.jpg"
@@ -455,7 +455,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 690000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000136076/product/_mgm4878_a47bcfc02b8f4b21911e782c3aed65bf_master.png"
@@ -465,7 +465,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 690000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000136076/product/_mgl5121_67b91f736047458a81c5b1fb3ea56ce9_master.png"
@@ -475,7 +475,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 790000,
         "inventory": 20,
-        "cateId": "Áo Dài",
+        "cateId": "5c1d8888-8a91-46a5-811e-306457bd7ffe",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000136076/product/_mgm4736_9787218964014c638cdeca1f4dab08cc_master.png"
@@ -485,7 +485,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 150000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2303ATU5361303/53123b90-8311-4f8e-a037-20b78c43c3b5.jpg"
@@ -495,7 +495,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 209000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://storage.vmstyle.vn/29963be7-8152-4271-921e-8d8df5f17981.webp"
@@ -505,7 +505,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 359000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000361760/product/cb735f0ab1a7411b98b6ce15c0cf68c2_e4321cba6d514e1c8be906eab1a414cb_master.jpg"
@@ -515,7 +515,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 187000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2309ATUC5360901/61ad3dc3-4955-4c54-b86b-af0db6b27894.jpg"
@@ -525,7 +525,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 187000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000361760/product/5e02c71c4e2ce772be3d_69e157520e0a45c3a152e79fbfef9e6f_master.jpg"
@@ -535,7 +535,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 136000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2305ATUC5362002/93fde3b0-8a9d-4d71-93b0-3d7f249ef4a4.jpg"
@@ -545,7 +545,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 137000,
         "inventory": 20,
-        "cateId": "Croptop",
+        "cateId": "bad6fa21-2e32-4878-9c42-72bf93ad69a8",
         "brand": "F&H",
         "status": 1,
         "image": "https://media-fmplus.cdn.vccloud.vn/uploads/products/2307ATUC5361301/101d3b3e-3240-4563-a9ee-2ea39e456413.jpg"
@@ -555,7 +555,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 450000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://product.hstatic.net/1000306633/product/dsc09953_cc3a212934cf4a1992086d03fea5fcee.jpg"
@@ -565,7 +565,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 390000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lnjt0oxyl1tm7c"
@@ -575,7 +575,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 395000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lncng31kx5kqc3"
@@ -585,7 +585,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 297000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkw8ljze640bf2"
@@ -595,7 +595,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 370000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lhzpcm4lnon992"
@@ -605,7 +605,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 397000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lhrfdy2m3j5t0e"
@@ -615,7 +615,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 385000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lj3vq5mh66to1d"
@@ -625,7 +625,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 285000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkrvgdgzqlkwff"
@@ -635,7 +635,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 379000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljnott8gdpfmbd"
@@ -645,7 +645,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 375000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-50009109-d4e91874bdc7cd086d0f52f1cebe6338"
@@ -655,7 +655,7 @@
         "describe": "Họa tiết: Trơn \nPhong cách: Thanh lịch",
         "price": 315000,
         "inventory": 20,
-        "cateId": "Áo thun",
+        "cateId": "eb04c3fb-de46-4e70-b5bf-f3e0aa06e174",
         "brand": "F&H",
         "status": 1,
         "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ley101iman2v43"
