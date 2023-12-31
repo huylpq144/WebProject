@@ -21,6 +21,10 @@ export default function Router() {
                     element: <HomePage />
                 },
                 {
+                    path: "/homepage",
+                    element: <HomePage />
+                },
+                {
                     path: "/login",
                     element: <Login />
                 },

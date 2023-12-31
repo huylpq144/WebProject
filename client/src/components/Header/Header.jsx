@@ -11,7 +11,7 @@ export default function Header() {
         <div id="storeHeader">
             <nav className="navbar navbar-expand-lg bg-dark">
                 <div className="container-fluid">
-                    <a onClick={() => navigate("/")} className="navbar-brand" href="/">
+                    <a onClick={() => navigate("/homepage")} className="navbar-brand" href="#">
                         FashionHub
                     </a>
                     <button
