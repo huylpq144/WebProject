@@ -48,6 +48,22 @@ exports.getAllProduct = async (req, res) => {
     }
 }
 
+exports.getAllProductNotCheck = async (req, res) => {
+    try {
+        const { categoryId } = req.body;
+        const resData = await prodService.getAllProduct(categoryId);
+        console.log(resData);
+        return res.json(resData);
+    }
+    catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}
+
 
 exports.getListCategory = async (req, res) => {
     try {

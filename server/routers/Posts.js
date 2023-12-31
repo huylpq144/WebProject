@@ -58,6 +58,7 @@ routers.get('/user/profile/:id', middleware.checkAuthAndToken, userRight.getUser
 routers.post('/product/create-product-cate', middleware.checkTokenAdmin, product.createProductCate)
 routers.post('/product/create-product', middleware.checkTokenAdmin, product.createProduct)
 routers.post('/product/get-all-product', middleware.checkAuthAndToken, product.getAllProduct)
+routers.post('/product/get-all-product-not-check', product.getAllProduct)
 routers.get('/product/get-all-category', middleware.checkAuthAndToken, product.getListCategory)
 
 //CART
