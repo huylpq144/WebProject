@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./login_style.css"
 import $ from "jquery"
+import axios from 'axios';
 
 export default function Login() {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const loginHandler = (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
         let isValid = true;
         if (isEmpty(username)) {
@@ -26,9 +27,27 @@ export default function Login() {
             hideError("alertUsername");
             hideError("alertPassword");
             // axios to the server
+            const UserData = {
+                username: username,
+                password: password
+            }
+            try {
+                const response = await axios.post("http://localhost:3001/api/login", UserData);
+                // console.log(response.data.accessToken);
+                localStorage.setItem("accessToken", response.data.accessToken);
+                if (response.data.status === 200) {
+                    navigate("/");
+                    return;
+                } else {
+                    showError("alertUsername", "(*) Your username or password is incorrect");
+                    showError("alertPassword", "(*) Your username or password is incorrect");
+                    return;
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            return;
         }
-
-
     }
     const isEmpty = (value) => {
         return value.trim() === "";

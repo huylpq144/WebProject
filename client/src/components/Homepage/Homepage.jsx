@@ -1,13 +1,39 @@
-import React from 'react'
-import productsData from "../../data/data.json"
+import React, { useEffect, useState } from 'react'
+import productsDataJson from "../../data/data.json"
 import newProductsData from "../../data/product.json"
 import "./mainStyle.css"
 import ProductList from '../ProductList/ProductList'
 import ProductDetail from '../ProductDetail/ProductDetail'
+import axios from 'axios'
 
 
 
-export default function ShoesStore() {
+export default function HomePage() {
+    const [productsData, setProductsData] = useState([]);
+    useEffect(() => {
+        const fetchProductsData = async () => {
+            try {
+                const body = {
+                    categoryId: ""
+                }
+                const accessToken = localStorage.getItem("accessToken");
+                const config = {
+                    headers: {
+                        'token': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                }
+                const response = await axios.post("http://localhost:3001/api/product/get-all-product", body, config);
+                setProductsData(response.data.rows);
+                // console.log(response.data.rows);
+                return;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchProductsData();
+    }, [])
+
     return (
         <div>
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
