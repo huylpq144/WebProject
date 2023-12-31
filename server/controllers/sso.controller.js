@@ -26,6 +26,7 @@ exports.login = async (req, res) => {
     try {
         console.log(req.body);
         const resData = await ssoService.login(req.body);
+        console.log(resData);
         return res.json(resData);
     } catch (error) {
         console.log(error);

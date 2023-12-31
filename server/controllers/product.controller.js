@@ -3,10 +3,10 @@ const prodService = require('../services/product.service')
 exports.createProductCate = async (req, res) => {
     try {
         const userId = req.user.userId;
-        const {cateName} = req.body;
+        const { cateName } = req.body;
         const resData = await prodService.createProductCate(userId, cateName);
         return res.json(resData);
-    } 
+    }
     catch (error) {
         console.log(error);
         return res.send({
@@ -22,7 +22,7 @@ exports.createProduct = async (req, res) => {
         const dataProduct = req.body;
         const resData = await prodService.createProduct(userId, dataProduct);
         return res.json(resData);
-    } 
+    }
     catch (error) {
         console.log(error);
         return res.send({
@@ -34,10 +34,11 @@ exports.createProduct = async (req, res) => {
 
 exports.getAllProduct = async (req, res) => {
     try {
-        const {categoryId} = req.body;
+        const { categoryId } = req.body;
         const resData = await prodService.getAllProduct(categoryId);
-        return res.json(resData);    
-    } 
+        console.log(resData);
+        return res.json(resData);
+    }
     catch (error) {
         console.log(error);
         return res.send({
@@ -51,8 +52,8 @@ exports.getAllProduct = async (req, res) => {
 exports.getListCategory = async (req, res) => {
     try {
         const resData = await prodService.getListCategory();
-        return res.json(resData);    
-    } 
+        return res.json(resData);
+    }
     catch (error) {
         console.log(error);
         return res.send({

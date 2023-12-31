@@ -26,14 +26,16 @@ export default function ProductItem({ item }) {
             setNotification(false);
         }, 3000);
     }
-    const { name, price, image } = item;
+    const { name, price, image, brand, inventory } = item;
     return (
         <div>
             <div className="card product-item">
                 <img src={image} className="card-img-top img-thumbnail" alt={name} />
                 <div className="card-body">
                     <h5 className="card-title fw-bold fs-5">{name}</h5>
-                    <p className="card-text">{price}$</p>
+                    <p className="card-text">Price: {price}VNĐ</p>
+                    <p className="card-text">Brand: {brand}</p>
+                    <p className="card-text">Inventory: {inventory}</p>
                 </div>
                 <div className="card-footer">
                     {/* add onclick event for these buttons */}
