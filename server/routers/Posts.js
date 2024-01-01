@@ -4,49 +4,18 @@ const sso = require('../controllers/sso.controller')
 const userRight = require('../controllers/user.controller')
 const product = require('../controllers/product.controller')
 const cart = require('../controllers/cart.controller')
+const order = require('../controllers/order.controller')
 
 const middleware = require('../middlewares/middlewares')
 //const {User} = require('../models');
-const db = require('../models')
-const User = db.User;
-const Product = db.Product;
-const ProductCate = db.ProductCategories
-const Payment = db.Payment
+const db = require('../models');
 
 const routers = express.Router();
-
-routers.get('/', async (req, res) => {
-    const listOfPosts = await Posts.findAll();
-    res.json(listOfPosts);
-});
-
-routers.post('/', async (req, res) => {
-    const post = req.body;
-    await Posts.create(post);
-    res.json(post);
-});
-
-routers.post('/user', async (req, res) => {
-    const user1 = req.body;
-    await User.create(user1);
-    res.json(user1);
-});
-
-routers.post('/product', async (req, res) => {
-    const product = req.body;
-    await Product.create(product);
-    res.json(product);
-});
-
-routers.post('/productCate', async (req, res) => {
-    const productCate = req.body;
-    await ProductCate.create(productCate);
-    res.json(productCate);
-});
 
 //SSO Auth
 routers.post('/register', sso.register);
 routers.post('/login', sso.login);
+routers.get('/get-profile', middleware.checkAuthAndToken, sso.getProfile);
 
 //USER
 routers.get('/get-all-users', middleware.checkAuthAndToken, userRight.getAllUsers)
@@ -59,6 +28,7 @@ routers.post('/product/create-product-cate', middleware.checkTokenAdmin, product
 routers.post('/product/create-product', middleware.checkTokenAdmin, product.createProduct)
 routers.post('/product/get-all-product', middleware.checkAuthAndToken, product.getAllProduct)
 routers.post('/product/get-all-product-not-check', product.getAllProduct)
+routers.post('/product/search-product', product.searchProduct)
 routers.get('/product/get-all-category', middleware.checkAuthAndToken, product.getListCategory)
 
 //CART
@@ -67,5 +37,6 @@ routers.post('/cart/remove-item', middleware.checkAuthAndToken, cart.removeCartI
 routers.post('/cart/list-item', middleware.checkAuthAndToken, cart.listCartItem)
 
 //ORDER
+routers.post('/order/create-order', middleware.checkAuthAndToken, order.createOrder)
 
 module.exports = routers

@@ -1,6 +1,7 @@
 const db = require("../models");
 const express = require("express");
 const { v4: uuidv4 } = require('uuid');
+const { Op } = require('sequelize');
 
 exports.createProductCate = async(userId, cateName) => {
     const ProductCate = await db.ProductCategories;
@@ -28,7 +29,7 @@ exports.createProduct = async(userId, dataProd) => {
     }
 };
 
-exports.getAllProduct = async (categoryId) => {
+exports.getAllProduct = async (categoryId, keyword) => {
     const Product = await db.Product;
     let product;
     if (categoryId == "") {
@@ -41,7 +42,22 @@ exports.getAllProduct = async (categoryId) => {
             }
         });
     }
-    
+    return {
+        status: 200,
+        rows: product
+    }
+}
+
+exports.searchProduct = async (keyword) => {
+    const Product = await db.Product;
+    keyword = `%${keyword}%`
+    const product = await Product.findAll({
+        where: {
+            name: {
+                [Op.like]: keyword
+            }
+        }
+    })
     return {
         status: 200,
         rows: product

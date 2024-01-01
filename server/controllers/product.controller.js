@@ -34,8 +34,8 @@ exports.createProduct = async (req, res) => {
 
 exports.getAllProduct = async (req, res) => {
     try {
-        const { categoryId } = req.body;
-        const resData = await prodService.getAllProduct(categoryId);
+        const { categoryId, keyword } = req.body;
+        const resData = await prodService.getAllProduct(categoryId, keyword);
         console.log(resData);
         return res.json(resData);
     }
@@ -64,6 +64,21 @@ exports.getAllProductNotCheck = async (req, res) => {
     }
 }
 
+exports.searchProduct = async (req, res) => {
+    try {
+        const { keyword } = req.body;
+        const resData = await prodService.searchProduct(keyword);
+        console.log(resData);
+        return res.json(resData);
+    }
+    catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}
 
 exports.getListCategory = async (req, res) => {
     try {

@@ -3,8 +3,9 @@ const orderService = require("../services/order.service")
 exports.createOrder = async (req, res) => {
     try {
         const userId = req.user.userId;
-        const {cartId} = req.body;
-        const resData = await orderService.createOrder(cartId);
+        const {listItem} = req.body;
+        console.log(listItem)
+        const resData = await orderService.createOrder(userId, listItem);
         return res.json(resData);
     } 
     catch (error) {

@@ -97,3 +97,22 @@ exports.login = async (userJson) => {
         }
     }
 };
+
+exports.getProfile = async (userId) => {
+    const User = await db.User;
+
+    const user = await User.findOne({
+        where: {
+            userId: userId
+        }
+    })
+
+    if (user == null) {
+        throw new Error('User null');
+    }
+
+    return {
+        status: 200,
+        row: user
+    }
+}
