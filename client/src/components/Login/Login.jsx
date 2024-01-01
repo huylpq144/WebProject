@@ -33,8 +33,9 @@ export default function Login() {
             }
             try {
                 const response = await axios.post("http://localhost:3001/api/login", UserData);
-                // console.log(response.data.accessToken);
+                console.log(response.data.accessToken);
                 localStorage.setItem("accessToken", response.data.accessToken);
+                console.log(localStorage.getItem("accessToken"));
                 if (response.data.status === 200) {
                     navigate("/");
                     return;
