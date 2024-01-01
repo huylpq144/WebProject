@@ -116,3 +116,17 @@ exports.getProfile = async (userId) => {
         row: user
     }
 }
+
+exports.editProfile = async (userId, userInfo) => {
+    const User = await db.User;
+    const user = await User.update(
+        {
+            name: userInfo?.name
+        },
+        {
+        where: {
+            userId: userId
+        }
+    })
+
+};

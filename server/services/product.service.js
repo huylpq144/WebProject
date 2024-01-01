@@ -29,7 +29,7 @@ exports.createProduct = async(userId, dataProd) => {
     }
 };
 
-exports.getAllProduct = async (categoryId, keyword) => {
+exports.getAllProduct = async (categoryId) => {
     const Product = await db.Product;
     let product;
     if (categoryId == "") {

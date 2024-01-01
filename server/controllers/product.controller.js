@@ -34,8 +34,8 @@ exports.createProduct = async (req, res) => {
 
 exports.getAllProduct = async (req, res) => {
     try {
-        const { categoryId, keyword } = req.body;
-        const resData = await prodService.getAllProduct(categoryId, keyword);
+        const { categoryId} = req.body;
+        const resData = await prodService.getAllProduct(categoryId);
         console.log(resData);
         return res.json(resData);
     }
