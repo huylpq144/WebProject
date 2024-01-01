@@ -3,15 +3,22 @@ import "./ItemStyle.css"
 import { useDispatch } from 'react-redux';
 import { setProductDetailAction } from '../../store/actions/productDetailAction';
 import { addToCartAction } from '../../store/actions/addToCartAction';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductItem({ item }) {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     // const currentState = useSelector(state => state.addToCartReducer.cartList);
     // console.log(currentState);
     const showDetailHandler = () => {
         dispatch(setProductDetailAction(item));
     }
+    const accessToken = localStorage.getItem("accessToken");
     const addToCartHandler = () => {
+        if (accessToken === "" || accessToken === null) {
+            alert("You need to log in to add product to cart");
+            return;
+        }
         dispatch(addToCartAction(item));
     }
     const [notification, setNotification] = useState(false);
@@ -21,6 +28,9 @@ export default function ProductItem({ item }) {
         // } else {
         //     setNotification(true);
         // }
+        if (accessToken === "" || accessToken === null) {
+            return;
+        }
         setNotification(true);
         setTimeout(() => {
             setNotification(false);
@@ -30,7 +40,9 @@ export default function ProductItem({ item }) {
     return (
         <div>
             <div className="card product-item">
-                <img src={image} className="card-img-top img-thumbnail" alt={name} />
+                <div className="img-container">
+                    <img src={image} className="card-img-top img-thumbnail product-image" alt={name} />
+                </div>
                 <div className="card-body">
                     <h5 className="card-title fw-bold fs-5">{name}</h5>
                     <p className="card-text">Price: {price}VNĐ</p>

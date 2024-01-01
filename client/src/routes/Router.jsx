@@ -7,6 +7,7 @@ import Signup from '../components/Signup/Signup';
 import Cart from '../components/Cart/Cart';
 import Checkout from '../components/Checkout/Checkout';
 import HomePage from '../components/Homepage/Homepage';
+import ProductsPage from '../components/ProductsPage/ProductsPage';
 
 
 export default function Router() {
@@ -39,6 +40,10 @@ export default function Router() {
                 {
                     path: "/checkout",
                     element: <Checkout />
+                },
+                {
+                    path: "/productsPage",
+                    element: <ProductsPage />
                 }
 
             ]
