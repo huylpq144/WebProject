@@ -3,10 +3,24 @@ import { useNavigate } from 'react-router-dom';
 import "./HeaderStyle.css"
 // import { addToCartAction } from '../../store/actions/addToCartAction';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export default function Header() {
     const navigate = useNavigate();
     const size = useSelector(state => state.addToCartReducer.size);
+    const getItemByCategory = async (categoryId) => {
+        try {
+            const body = {
+                categoryId: categoryId
+            }
+            // console.log(localStorage.getItem("accessToken"));
+            const response = await axios.post("http://localhost:3001/api/product/get-all-product-not-check", body);
+            console.log(response);
+            return;
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div id="storeHeader">
             <nav className="navbar navbar-expand-lg bg-dark">
@@ -40,7 +54,7 @@ export default function Header() {
                                     </a>
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <a className="dropdown-item w-100 px-4" href="#">
+                                            <a onClick={() => getItemByCategory("abb87ad1-9e75-4ba9-afc6-9461bb22e0a9")} className="dropdown-item w-100 px-4" href="#">
                                                 Đầm Dài
                                             </a>
                                         </li>

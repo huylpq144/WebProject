@@ -16,14 +16,7 @@ export default function HomePage() {
                 const body = {
                     categoryId: ""
                 }
-                const accessToken = localStorage.getItem("accessToken");
-                const config = {
-                    headers: {
-                        'token': `Bearer ${accessToken}`,
-                        'Content-Type': 'application/json'
-                    }
-                }
-                const response = await axios.post("http://localhost:3001/api/product/get-all-product", body, config);
+                const response = await axios.post("http://localhost:3001/api/product/get-all-product-not-check", body);
                 setProductsData(response.data.rows);
                 // console.log(response.data.rows);
                 return;

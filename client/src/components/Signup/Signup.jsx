@@ -53,7 +53,9 @@ export default function Signup() {
             };
             try {
                 const response = await axios.post("http://localhost:3001/api/register", UserData);
+                // console.log(response.data.status);
                 if (response.data.status === 400) {
+                    // console.log("status 400");
                     showError("alertName", "(*) Username already existed!");
                     return;
                 } else {

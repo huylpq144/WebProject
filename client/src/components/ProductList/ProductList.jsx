@@ -4,7 +4,7 @@ import "./ListStyle.css";
 
 export default function ProductList(props) {
     const { productsData } = props;
-    console.log(productsData);
+    // console.log(productsData);
     const renderProductList = () => {
         return productsData.map((element) => {
             return (
