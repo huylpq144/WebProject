@@ -16,6 +16,8 @@ const routers = express.Router();
 routers.post('/register', sso.register);
 routers.post('/login', sso.login);
 routers.get('/get-profile', middleware.checkAuthAndToken, sso.getProfile);
+routers.post('/sendmail', sso.sendMail)
+
 
 //USER
 routers.get('/get-all-users', middleware.checkAuthAndToken, userRight.getAllUsers)

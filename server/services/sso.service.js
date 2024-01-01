@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const db = require("../models");
 const { use } = require("../routers/Posts");
 const { Op } = require("sequelize");
-
+const nodeMailer = require('nodemailer')
 
 exports.register = async (userJson) => {
     console.log(userJson);
@@ -130,3 +130,25 @@ exports.editProfile = async (userId, userInfo) => {
     })
 
 };
+
+exports.sendMail = async (emailTo, subject, html1) => {
+    const transporter = nodeMailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'fitproject81@gmail.com',
+          pass: 'qmmh tjbt dbgw vofz',
+        },
+    })
+    const html = `
+                <h1>Hello world</h1>
+                <p>Isn't Nodemailer useful?</p>
+    `;
+    const info = await transporter.sendMail({
+        from: 'FashionHub',
+        to: 'huylpq@gmail.com',
+        subject: 'testing',
+        html: html
+    })    
+
+    return 1;
+}

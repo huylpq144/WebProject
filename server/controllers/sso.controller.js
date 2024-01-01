@@ -65,3 +65,16 @@ exports.editProfile = async (req, res) => {
         });
     }
 };
+
+exports.sendMail = async (req, res) => {
+    try {
+        const resData = await ssoService.sendMail(123, 123, 123);
+        return res.json(resData);
+    } catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}

@@ -21,3 +21,7 @@
     /* Adjust the height value as needed */
     object-fit: cover;
 }
+
+.card-text {
+    text-align: justify;
+}
