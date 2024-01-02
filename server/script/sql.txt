@@ -106,3 +106,10 @@ CREATE TABLE `webproject`.`order` (
   `updated_at` DATETIME NULL,
   `deleted_at` DATETIME NULL,
   PRIMARY KEY (`id`));
+
+
+
+ALTER TABLE `webproject`.`payment` 
+CHANGE COLUMN `price` `price` INT NULL ,
+CHANGE COLUMN `discount` `discount` FLOAT NULL ,
+CHANGE COLUMN `dicount_amount` `discount_amount` INT NULL DEFAULT NULL ;

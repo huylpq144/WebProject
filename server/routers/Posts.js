@@ -40,5 +40,10 @@ routers.post('/cart/list-item', middleware.checkAuthAndToken, cart.listCartItem)
 
 //ORDER
 routers.post('/order/create-order', middleware.checkAuthAndToken, order.createOrder)
+routers.post('/order/confirm-payment', middleware.checkAuthAndToken, order.confirmPayment)
+routers.get('/payment/approve/:orderNo', order.approveTransfer)
+routers.get('/payment/cancel/:orderNo', order.cancelTransfer)
+
+
 
 module.exports = routers

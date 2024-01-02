@@ -131,7 +131,7 @@ exports.editProfile = async (userId, userInfo) => {
 
 };
 
-exports.sendMail = async (emailTo, subject, html1) => {
+exports.sendMail = async (emailTo, subject, html) => {
     const transporter = nodeMailer.createTransport({
         service: 'gmail',
         auth: {
@@ -139,16 +139,10 @@ exports.sendMail = async (emailTo, subject, html1) => {
           pass: 'qmmh tjbt dbgw vofz',
         },
     })
-    const html = `
-                <h1>Hello world</h1>
-                <p>Isn't Nodemailer useful?</p>
-    `;
-    const info = await transporter.sendMail({
-        from: 'FashionHub',
-        to: 'huylpq@gmail.com',
-        subject: 'testing',
+    return await transporter.sendMail({
+        from: 'FashionHub <FitProject>',
+        to: emailTo,
+        subject: subject,
         html: html
     })    
-
-    return 1;
 }

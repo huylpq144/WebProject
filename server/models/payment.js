@@ -18,12 +18,12 @@ module.exports = function(sequelize, DataTypes) {
       },
       price: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         field: 'price'
       },
       discount: {
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
         field: 'discount'
       },
       discountAmount: {
@@ -49,7 +49,7 @@ module.exports = function(sequelize, DataTypes) {
       discountCode: {
         type: DataTypes.STRING,
         allowNull: true,
-        field: 'discountCode'
+        field: 'discount_code'
       },
       paymentConfirmDate: {
         type: DataTypes.STRING,
