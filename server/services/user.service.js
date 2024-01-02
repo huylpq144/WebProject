@@ -3,7 +3,7 @@ const db = require("../models");
 exports.getAllUsers = async() => {
     const User = await db.User;
     const user = await User.findAll({
-        attributes: ['userId', 'username', 'email'],
+        attributes: ['userId', 'username', 'email', 'tel', 'dayOfBirth', 'address'],
     });
     return {
         status: 200,

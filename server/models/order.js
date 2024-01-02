@@ -6,6 +6,11 @@ module.exports = function(sequelize, DataTypes) {
         primaryKey: true,
         field: "id"
       },
+      orderNo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        field: 'order_no'
+      },
       userId: {
         type: DataTypes.STRING,
         allowNull: false,

@@ -1,7 +1,7 @@
 const db = require("../models");
 const express = require("express");
 const { v4: uuidv4 } = require('uuid');
-const { Op } = require('sequelize');
+const { Op, DATE } = require('sequelize');
 
 exports.createProductCate = async(userId, cateName) => {
     const ProductCate = await db.ProductCategories;
@@ -33,12 +33,19 @@ exports.getAllProduct = async (categoryId) => {
     const Product = await db.Product;
     let product;
     if (categoryId == "") {
-        product = await Product.findAll();
+        product = await Product.findAll(
+            {
+                where: {
+                    deletedAt: null
+                }
+            }
+        );
     }
     else {
         product = await Product.findAll({
             where: {
-                cateId: categoryId
+                cateId: categoryId,
+                deletedAt: null
             }
         });
     }
@@ -73,4 +80,61 @@ exports.getListCategory = async() => {
         status: 200,
         rows: category
     }
+}
+
+exports.addProduct = async(userId, productJson, cateName) => {
+    const Product = await db.Product;
+    const ProductCategories = await db.ProductCategories;
+    
+    const PC = await ProductCategories.findOne({
+        where: {
+            cateName: cateName
+        }
+    })
+
+    const updatedProductJson = {
+        ...productJson,
+        id: uuidv4(),
+        cateId: PC.id,
+        createdBy: userId
+    };
+
+    const product = await Product.create(updatedProductJson);
+
+    if (product == null) {
+        throw new Error("add product error");
+    }
+
+    return {
+        status: 200, 
+        message: "Add product success"
+    }
+
+}
+
+
+exports.deleteProduct = async(id) => {
+    const Product = await db.Product;
+
+    const product = await Product.update(
+        {
+            deletedAt: new Date(), 
+            status: 0
+        },
+        {
+            where: {
+                id: id
+            }
+        }
+    )
+
+    if (product == 0) {
+        throw new Error ("Delete product fail")
+    }
+
+    return {
+        status: 200, 
+        message: "Delete product success"
+    }
+
 }

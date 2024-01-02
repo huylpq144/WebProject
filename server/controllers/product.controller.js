@@ -93,3 +93,39 @@ exports.getListCategory = async (req, res) => {
         });
     }
 }
+
+exports.addProduct = async (req, res) => {
+    try {
+        const userId = req.user.userId
+        const {name, describe, price, inventory, cateName, image, brand} = req.body
+        const productJson = {
+            name, describe, price, inventory, image, brand
+        };
+        const resData = await prodService.addProduct(userId, productJson, cateName);
+        return res.json(resData);
+    }
+    catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}
+
+
+exports.deleteProduct = async (req, res) => {
+    try {
+        const userId = req.user.userId
+        const {id} = req.body
+        const resData = await prodService.deleteProduct(id);
+        return res.json(resData);
+    }
+    catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}

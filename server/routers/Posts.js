@@ -32,6 +32,8 @@ routers.post('/product/get-all-product', middleware.checkAuthAndToken, product.g
 routers.post('/product/get-all-product-not-check', product.getAllProduct)
 routers.post('/product/search-product', product.searchProduct)
 routers.get('/product/get-all-category', middleware.checkAuthAndToken, product.getListCategory)
+routers.post('/product/add-product', middleware.checkTokenAdmin, product.addProduct)
+routers.post('/product/delete-product', middleware.checkTokenAdmin, product.deleteProduct)
 
 //CART
 routers.post('/cart/add-item', middleware.checkAuthAndToken, cart.addCartItem)
@@ -43,6 +45,7 @@ routers.post('/order/create-order', middleware.checkAuthAndToken, order.createOr
 routers.post('/order/confirm-payment', middleware.checkAuthAndToken, order.confirmPayment)
 routers.get('/payment/approve/:orderNo', order.approveTransfer)
 routers.get('/payment/cancel/:orderNo', order.cancelTransfer)
+routers.get('/order/get-all-order', middleware.checkAuthAndToken, order.getAllOrder)
 
 
 

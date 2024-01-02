@@ -113,3 +113,7 @@ ALTER TABLE `webproject`.`payment`
 CHANGE COLUMN `price` `price` INT NULL ,
 CHANGE COLUMN `discount` `discount` FLOAT NULL ,
 CHANGE COLUMN `dicount_amount` `discount_amount` INT NULL DEFAULT NULL ;
+
+
+ALTER TABLE `webproject`.`order` 
+ADD COLUMN `order_no` VARCHAR(255) NULL AFTER `id`;

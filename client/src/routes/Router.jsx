@@ -8,6 +8,7 @@ import Cart from '../components/Cart/Cart';
 import Checkout from '../components/Checkout/Checkout';
 import HomePage from '../components/Homepage/Homepage';
 import ProductsPage from '../components/ProductsPage/ProductsPage';
+import ProfilePage from '../components/Profile/ProfilePage';
 
 
 export default function Router() {
@@ -44,6 +45,10 @@ export default function Router() {
                 {
                     path: "/productsPage",
                     element: <ProductsPage />
+                },
+                {
+                    path: "/profile",
+                    element: <ProfilePage />
                 }
 
             ]

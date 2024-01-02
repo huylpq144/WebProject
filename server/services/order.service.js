@@ -42,8 +42,13 @@ exports.createOrder = async(userId, listItem) => {
         }
     })
 
-    await Order.create({
+    const currentTime = new Date();
+    const timestamp = currentTime.getTime();
+    let orderNo = `FH${timestamp}`
+
+    const order = await Order.create({
         id: uuidv4(),
+        orderNo: orderNo,
         userId: userId,
         cartId: cartUpdated.id,
         totalAmount: cartUpdated.totalPrice,
@@ -52,17 +57,14 @@ exports.createOrder = async(userId, listItem) => {
     
     return {
         status: 200,
-        message: "Order success"
+        message: "Order success",
+        orderNo: order.orderNo
     }
 };
 
-exports.confirmPayment = async(userId, paymentJson) => {
+exports.confirmPayment = async(userId, paymentJson, orderNo) => {
     const Payment = await db.Payment;
     const User = await db.User;
-
-    const currentTime = new Date();
-    const timestamp = currentTime.getTime();
-    let orderNo = `FH${timestamp}`
 
     const payment = await Payment.create({
         id: uuidv4(),
@@ -180,6 +182,9 @@ exports.confirmPayment = async(userId, paymentJson) => {
 exports.approveTransfer = async(orderNo) => {
     const Payment = await db.Payment
     const User = await db.User
+    const Order = await db.Order
+    const CartItem = await db.CartItem
+    const Product = await db.Product
 
     const payment = await Payment.update({
         status: "COMPLETED"
@@ -266,6 +271,28 @@ exports.approveTransfer = async(orderNo) => {
 
     const mail = await sendMail(user.email, "Xác Nhận Đơn Hàng Thành Công", html)
     
+    const order = await Order.findOne({
+        where: {
+            orderNo: orderNo
+        }
+    })                      
+    const listCartItem = await CartItem.findAll({
+        attributes: ['productId', 'quantity'],
+        where: {
+            cartId: order.cartId
+        }
+    })
+    for (const cartItem of listCartItem) {
+        const {productId, quantity} = cartItem
+
+        await Product.decrement('inventory', {
+            by: quantity,
+            where: {id: productId},
+            logging: console.log
+        })
+    };
+
+
     return {
         status: 200,
         message: "Approve success!"
@@ -366,3 +393,20 @@ exports.cancelTransfer = async(orderNo) => {
         message: "Cancel success!"
     }
 }
+
+
+exports.getAllOrder = async(userId) => {
+    const Payment = await db.Payment
+
+    const listPayment = await Payment.findAll({
+        attributes: ['id', 'orderNo', 'price', 'discountAmount', 'totalAmount', 'paymentMethod', 'status', 'shippingAddress', 'notes'],
+        where: {
+            userId: userId
+        }
+    });
+    return {
+        status: 200,
+        rows: listPayment
+    }
+
+};
