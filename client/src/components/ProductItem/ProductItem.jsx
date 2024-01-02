@@ -3,10 +3,8 @@ import "./ItemStyle.css"
 import { useDispatch } from 'react-redux';
 import { setProductDetailAction } from '../../store/actions/productDetailAction';
 import { addToCartAction } from '../../store/actions/addToCartAction';
-import { useNavigate } from 'react-router-dom';
 
 export default function ProductItem({ item }) {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     // const currentState = useSelector(state => state.addToCartReducer.cartList);
     // console.log(currentState);

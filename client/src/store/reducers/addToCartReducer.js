@@ -21,6 +21,27 @@ export const addToCartReducer = (state = DEFAULT_STATE, action) => {
             state.size = newState.size + 1;
             // console.log(state);
             break;
+        case "CLEAR_CART":
+            return {
+                ...state,
+                cartList: [],
+                size: 0,
+            }
+        case "REMOVE_PRODUCT":
+            let newState_2 = { ...state };
+            const id = action.payload.product_id;
+            const currentCart_2 = JSON.parse(JSON.stringify(state.cartList));
+            const foundProduct = state.cartList.findIndex(product => product.id === id);
+            if (foundProduct !== -1) {
+                if (currentCart_2[foundProduct].cartQuantity > 1) {
+                    currentCart_2[foundProduct].cartQuantity--;
+                } else {
+                    currentCart_2.splice(foundProduct, 1);
+                }
+            }
+            state.cartList = currentCart_2;
+            state.size = newState_2.size - 1;
+            break;
         default:
             break;
     }
