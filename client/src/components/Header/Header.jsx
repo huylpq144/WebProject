@@ -5,6 +5,7 @@ import "./HeaderStyle.css"
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { searchAction } from '../../store/actions/searchAction';
+import { clearCartAction } from '../../store/actions/addToCartAction';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -50,6 +51,7 @@ export default function Header() {
             return;
         }
         localStorage.removeItem("accessToken");
+        dispatch(clearCartAction());
         navigate("/login");
         return;
     }

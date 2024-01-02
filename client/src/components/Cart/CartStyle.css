@@ -7,7 +7,7 @@
 } */
 
 #shoppingCartPage .card {
-    height: 150px;
+    height: fit-content;
 }
 
 #shoppingCartPage img {

@@ -4,3 +4,14 @@ export const addToCartAction = (product) => {
         payload: product,
     }
 }
+export const clearCartAction = () => {
+    return {
+        type: "CLEAR_CART"
+    }
+}
+export const removeProductFromCart = (product_id) => {
+    return {
+        type: "REMOVE_PRODUCT",
+        payload: { product_id },
+    }
+}
