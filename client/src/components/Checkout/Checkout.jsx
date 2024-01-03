@@ -14,19 +14,23 @@ export default function Checkout() {
                     </h1>
                     <div className="name">
                         <div>
-                            <label htmlFor="f-name">First</label>
+                            <label htmlFor="f-name">Total Price</label>
                             <input type="text" name="f-name" />
                         </div>
                         <div>
-                            <label htmlFor="l-name">Last</label>
+                            <label htmlFor="l-name">Total Products</label>
+                            <input type="text" name="l-name" />
+                        </div>
+                        <div>
+                            <label htmlFor="l-name">Total discounts</label>
                             <input type="text" name="l-name" />
                         </div>
                     </div>
                     <div className="street">
-                        <label htmlFor="name">Street</label>
+                        <label htmlFor="name">Address</label>
                         <input type="text" name="address" />
                     </div>
-                    <div className="address-info">
+                    {/* <div className="address-info">
                         <div>
                             <label htmlFor="city">City</label>
                             <input type="text" name="city" />
@@ -39,17 +43,17 @@ export default function Checkout() {
                             <label htmlFor="zip">Zip</label>
                             <input type="text" name="zip" />
                         </div>
-                    </div>
+                    </div> */}
                     <h1>
                         <i className="far fa-credit-card" /> Payment Information
                     </h1>
                     <div className="cc-num">
-                        <label htmlFor="card-num">Credit Card No.</label>
+                        <label htmlFor="card-num">Payment Method</label>
                         <input type="text" name="card-num" />
                     </div>
                     <div className="cc-info">
                         <div>
-                            <label htmlFor="card-num">Exp</label>
+                            <label htmlFor="card-num">Discount Code</label>
                             <input type="text" name="expire" />
                         </div>
                         <div>

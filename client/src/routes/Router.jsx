@@ -8,8 +8,7 @@ import Cart from '../components/Cart/Cart';
 import Checkout from '../components/Checkout/Checkout';
 import HomePage from '../components/Homepage/Homepage';
 import ProductsPage from '../components/ProductsPage/ProductsPage';
-import ProfilePage from '../components/Profile/ProfilePage';
-
+import UserProfile from '../components/userInfo/UserProfile';
 
 export default function Router() {
     const routing = useRoutes([
@@ -47,10 +46,9 @@ export default function Router() {
                     element: <ProductsPage />
                 },
                 {
-                    path: "/profile",
-                    element: <ProfilePage />
+                    path: "/userProfile",
+                    element: <UserProfile />
                 }
-
             ]
         }
     ]);
