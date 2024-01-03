@@ -217,11 +217,19 @@ export default function Header() {
                     </button>
                     <ul className="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
                         {accessToken ? (
-                            <li>
-                                <button onClick={() => handleLogout()} className="dropdown-item" type="button">
-                                    <i className="fa-solid fa-user-plus" style={{ color: '#000000' }} /> Logout
-                                </button>
-                            </li>
+                            <>
+                                <li>
+                                    <button onClick={() => handleLogout()} className="dropdown-item" type="button">
+                                        <i class="fa-solid fa-right-from-bracket" style={{ color: '#000000' }}></i> Logout
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => navigate("/userProfile")} className="dropdown-item" type="button">
+                                        <i class="fa-solid fa-circle-info" style={{ color: '#000000' }}></i> Your Profile
+                                    </button>
+                                </li>
+                            </>
+
                         ) : (
                             <>
                                 <li>

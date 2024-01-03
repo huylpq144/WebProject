@@ -8,7 +8,7 @@ import Cart from '../components/Cart/Cart';
 import Checkout from '../components/Checkout/Checkout';
 import HomePage from '../components/Homepage/Homepage';
 import ProductsPage from '../components/ProductsPage/ProductsPage';
-
+import UserProfile from '../components/userInfo/UserProfile';
 
 export default function Router() {
     const routing = useRoutes([
@@ -44,8 +44,11 @@ export default function Router() {
                 {
                     path: "/productsPage",
                     element: <ProductsPage />
+                },
+                {
+                    path: "/userProfile",
+                    element: <UserProfile />
                 }
-
             ]
         }
     ]);
