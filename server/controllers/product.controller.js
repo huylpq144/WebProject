@@ -129,3 +129,23 @@ exports.deleteProduct = async (req, res) => {
         });
     }
 }
+
+exports.editProduct = async (req, res) => {
+    try {
+        const userId = req.user.userId
+        const {id, name, describe, price, inventory, image, brand} = req.body
+        const productJson = {
+            name, describe, price, inventory, image, brand,
+            updatedAt: new Date()
+        };
+        const resData = await prodService.editProduct(id, productJson);
+        return res.json(resData);
+    }
+    catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+}

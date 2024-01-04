@@ -95,9 +95,9 @@ exports.confirmPayment = async (userId, paymentJson, orderNo) => {
                 </head>
                 <body style="color: #121926;">
 
-                <div class="content" style="color: #121926; padding-left: 50px; margin-bottom: 20px;"><strong>Name: </strong>${paymentJson.name}</div>
-                <div class="content" style="color: #121926; padding-left: 50px; margin-bottom: 20px;"><strong>Address: </strong>${paymentJson.address}</div>
-                <div class="content" style="color: #121926; padding-left: 50px; margin-bottom: 20px;"><strong>Telephone: </strong>${paymentJson.phone}</div>
+                <div class="content" style="color: #121926; padding-left: 70px; margin-bottom: 20px;"><strong>Name: </strong>${paymentJson.name}</div>
+                <div class="content" style="color: #121926; padding-left: 70px; margin-bottom: 20px;"><strong>Address: </strong>${paymentJson.address}</div>
+                <div class="content" style="color: #121926; padding-left: 70px; margin-bottom: 20px;"><strong>Telephone: </strong>${paymentJson.phone}</div>
 
                 <div class="payment_approve" style="margin-left: 24px; margin-right: 24px; padding: 24px;">
                 <div class="pay_content" style="display: flex; margin-left: -16px; margin-right: -16px;">

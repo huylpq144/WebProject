@@ -138,3 +138,27 @@ exports.deleteProduct = async(id) => {
     }
 
 }
+
+exports.editProduct = async(id, productJson) => {
+    const Product = await db.Product;
+    
+
+    const product = await Product.update(productJson,
+        {
+            where: {
+                id: id,
+                deletedAt: null
+            }
+        }
+    )
+
+    if (product == 0) {
+        throw new Error ("Edit product fail")
+    }
+
+    return {
+        status: 200, 
+        message: "Edit product success"
+    }
+
+}

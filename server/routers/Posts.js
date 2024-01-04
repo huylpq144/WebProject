@@ -34,6 +34,7 @@ routers.post('/product/search-product', product.searchProduct)
 routers.get('/product/get-all-category', middleware.checkAuthAndToken, product.getListCategory)
 routers.post('/product/add-product', middleware.checkTokenAdmin, product.addProduct)
 routers.post('/product/delete-product', middleware.checkTokenAdmin, product.deleteProduct)
+routers.post('/product/edit-product', middleware.checkTokenAdmin, product.editProduct)
 
 //CART
 routers.post('/cart/add-item', middleware.checkAuthAndToken, cart.addCartItem)
