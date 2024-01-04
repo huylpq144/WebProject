@@ -58,3 +58,17 @@ exports.getUserProfile = async (req, res) => {
         });
     }
 };
+
+exports.editUserRole = async (req, res) => {
+    try {
+        const {userId, role} = req.body
+        const resData = await userService.editUserRole(userId, role);
+        return res.json(resData);
+    } catch (error) {
+        console.log(error);
+        return res.send({
+            status: error.code || 400,
+            message: error.message,
+        });
+    }
+};

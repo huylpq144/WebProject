@@ -3,7 +3,7 @@ const db = require("../models");
 exports.getAllUsers = async() => {
     const User = await db.User;
     const user = await User.findAll({
-        attributes: ['userId', 'username', 'email', 'tel', 'dayOfBirth', 'address'],
+        attributes: ['userId', 'name', 'role', 'username', 'email', 'tel', 'dayOfBirth', 'address'],
     });
     return {
         status: 200,
@@ -55,5 +55,21 @@ exports.getUserProfile = async(userId) => {
     return {
         status: 200,
         data: user
+    }
+};
+
+exports.editUserRole = async(userId, role) => {
+    const User = await db.User;
+    const user = await User.update(role, {
+        where: {
+            userId: userId
+        }
+    })
+    if (user != 1) {
+        throw new Error("Edit role fail");
+    }
+    return {
+        status: 200,
+        message: "Edit user role success"
     }
 };
