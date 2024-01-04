@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./ProductsAdminStyle.css"
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductsAdmin() {
     const [modifyProduct, setModifyProduct] = useState("ADD");
@@ -15,6 +16,9 @@ export default function ProductsAdmin() {
     const [img, setImg] = useState("");
     const [brand, setBrand] = useState("");
     const [productID, setProductID] = useState("");
+    const [input, setInput] = useState("");
+
+    const navigate = useNavigate();
 
 
     const handleAddProductModal = () => {
@@ -68,8 +72,9 @@ export default function ProductsAdmin() {
             }
         }
         // console.log(body);
-        const response = await axios.post("http://localhost:3001/api/product/add-product", body, config);
+        const response = await axios.post("http://localhost:3001/api/product/edit-product", body, config);
         console.log(response);
+        setDisplay("none");
     }
 
     const handleAddBtn = async () => {
@@ -92,6 +97,28 @@ export default function ProductsAdmin() {
         // console.log(body);
         const response = await axios.post("http://localhost:3001/api/product/add-product", body, config);
         console.log(response);
+        // const getProductsBody = {
+        //     categoryId: ""
+        // }
+        // const productsResponse = await axios.post("http://localhost:3001/api/product/get-all-product-not-check", getProductsBody);
+        // const newProducts = productsResponse.data.rows;
+        // setProductsData(newProducts);
+        setDisplay("none");
+    }
+    const handleDeleteBtn = async (p) => {
+        const body = {
+            id: p.id
+        }
+        const accessToken = localStorage.getItem("accessToken");
+        const config = {
+            headers: {
+                'token': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+        const response = await axios.post("http://localhost:3001/api/product/delete-product", body, config);
+        console.log(response);
+        return;
     }
     useEffect(() => {
         const fetchProductsData = async () => {
@@ -119,21 +146,33 @@ export default function ProductsAdmin() {
                     <td>{p.inventory}</td>
                     <td className="">
                         <button type="button" onClick={() => handleEditProductModal(p)} className="btn btn-warning m-2">Edit</button>
-                        <button type="button" className="btn btn-danger">Delete</button>
+                        <button type="button" onClick={() => handleDeleteBtn(p)} className="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             );
         });
+    }
+    const handleSearchProduct = async () => {
+        const body = {
+            keyword: input
+        }
+        const response = await axios.post("http://localhost:3001/api/product/search-product", body);
+        setProductsData(response.data.rows);
+        return;
     }
     return (
         <div id='productsAdmin'>
             <div className="product-page-wrapper">
                 <header className="product-header">
                     <h1>Products</h1>
-                    <button className="add-new-button" type='button' onClick={() => handleAddProductModal()}>Add New Products</button>
+                    <div className="d-flex gap-3">
+                        <button className="btn btn-primary" type='button' onClick={() => navigate("/usersAdmin")}>Move to Users</button>
+                        <button className="btn btn-success" type='button' onClick={() => handleAddProductModal()}>Add New Products</button>
+                    </div>
                 </header>
-                <div className="search-bar">
-                    <input type="text" placeholder="Search..." />
+                <div className="search-bar mb-3">
+                    <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search..." />
+                    <button className="btn btn-primary" type='button' onClick={() => handleSearchProduct()} >Search Product</button>
                 </div>
                 <div className="product-table">
                     <table>
@@ -200,7 +239,16 @@ export default function ProductsAdmin() {
                                 <input type="url" id="image" name="Image" value={img} onChange={(e) => setImg(e.target.value)} placeholder="Enter image URL" />
                                 <label htmlFor="Brand">Brand</label>
                                 <input type="text" id="Brand" name="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} placeholder="Brand name" />
-                                <button type="button" onClick={() => handleAddBtn()}>Add</button>
+                                {modifyProduct === "ADD" ? (
+                                    <>
+                                        <button type="button" onClick={() => handleAddBtn()}>Add Product</button>
+
+                                    </>
+                                ) : (
+                                    <>
+                                        <button type="button" onClick={() => handleEditBtn()}>Edit Product</button>
+                                    </>
+                                )}
                             </form>
                         </div>
                     </div>

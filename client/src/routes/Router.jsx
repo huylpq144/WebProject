@@ -10,6 +10,7 @@ import HomePage from '../components/Homepage/Homepage';
 import ProductsPage from '../components/ProductsPage/ProductsPage';
 import UserProfile from '../components/userInfo/UserProfile';
 import ProductsAdmin from '../components/ProductsAdmin/ProductsAdmin';
+import UsersAdmin from '../components/UsersAdmin/UsersAdmin';
 
 export default function Router() {
     const routing = useRoutes([
@@ -53,6 +54,10 @@ export default function Router() {
                 {
                     path: "/productsAdmin",
                     element: <ProductsAdmin />
+                },
+                {
+                    path: "/usersAdmin",
+                    element: <UsersAdmin />
                 }
             ]
         }

@@ -20,7 +20,7 @@ routers.post('/sendmail', sso.sendMail)
 
 
 //USER
-routers.get('/get-all-users', middleware.checkAuthAndToken, userRight.getAllUsers)
+routers.get('/get-all-users', middleware.checkTokenAdmin, userRight.getAllUsers)
 routers.delete('/delete-user/:id', middleware.checkTokenAdmin, userRight.deleteUser)
 routers.post('/user/edit-profile', middleware.checkAuthAndToken, userRight.editProfile)
 routers.get('/user/profile/:id', middleware.checkAuthAndToken, userRight.getUserProfile)
