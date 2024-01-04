@@ -181,13 +181,18 @@ export default function Header() {
                             <li className="nav-item space-s"></li>
                         </ul>
                     </div>
-                    <button onClick={() => navigate("/cart")} id='shoppingCart' className="dropdown-item position-relative" type="button">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                            style={{ fontSize: '10px' }}>
-                            {size}
-                        </span>
-                    </button>
+                    {accessToken && (
+                        <>
+                            <button onClick={() => navigate("/cart")} id='shoppingCart' className="dropdown-item position-relative" type="button">
+                                <i className="fa-solid fa-cart-shopping" />
+                                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    style={{ fontSize: '10px' }}>
+                                    {size}
+                                </span>
+                            </button>
+
+                        </>
+                    )}
 
                 </div>
                 <form className="d-flex search-form" role="search">

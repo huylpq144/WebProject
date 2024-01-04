@@ -117,6 +117,17 @@ export default function Signup() {
                                 onChange={(e) => setUsername(e.target.value)} />
                             <span id="alertName"></span>
                         </div>
+                        <div className="form-control">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                name='password'
+                                type="password"
+                                id="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)} />
+                            <span id="alertPassword"></span>
+                        </div>
 
                         <div className="form-control">
                             <label htmlFor="email">Email</label>
@@ -140,7 +151,6 @@ export default function Signup() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} />
                             <span id="alertPassword"></span>
-
                         </div>
                         <div className="form-control">
                             <label htmlFor="retype-password">Re-Type Password</label>
@@ -154,6 +164,18 @@ export default function Signup() {
                             <span id="alertRetypePassword"></span>
 
                             {/* <p>Retype password is incorrect</p> */}
+                        </div>
+
+                        <div className="form-control">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                name='password'
+                                type="password"
+                                id="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)} />
+                            <span id="alertPassword"></span>
                         </div>
                         <button type="submit" className="signup-btn">Sign Up</button>
                     </form>

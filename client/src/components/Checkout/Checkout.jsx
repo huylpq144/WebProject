@@ -198,7 +198,7 @@ export default function Checkout() {
                             </div>
                         </div>
 
-                        {payment === "bank" && (
+                        {payment === "BANK" && (
                             <>
                                 <div className="cc-num mb-3">
                                     <label htmlFor="card-num">Bank's Name</label>

@@ -62,7 +62,6 @@ export default function HomePage() {
                         <img src="/images/pants.jpg" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Thời Trang Đầy Tinh Tế</h5>
-                            <p className="card-text">Chào mừng bạn đến với FashionHub - nơi kết nối đam mê thời trang và phong cách. Chúng tôi tự hào mang đến những bộ sưu tập độc đáo, từ những xu hướng thịnh hành đến những kiểu dáng classic, tạo nên sự đa dạng cho mọi phong cách. Hãy khám phá ngay để tìm ra bộ trang phục hoàn hảo cho phong cách riêng của bạn!</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +70,6 @@ export default function HomePage() {
                         <img src="/images/skirt.jpg" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Chất Lượng và Xu Hướng Hiện Đại</h5>
-                            <p className="card-text">FashionHub cam kết mang đến cho bạn những sản phẩm chất lượng nhất từ các nhãn hiệu uy tín trên thế giới. Từ chất liệu đến kiểu dáng, chúng tôi không chỉ theo đuổi sự xuất sắc mà còn luôn cập nhật những xu hướng thời trang mới nhất. Với chúng tôi, bạn không chỉ mua quần áo, bạn đang chọn lựa phong cách và sự tự tin.</p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +78,6 @@ export default function HomePage() {
                         <img src="/images/shirts-6.jpg" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">Trải Nghiệm Mua Sắm Độc Đáo</h5>
-                            <p className="card-text">FashionHub không chỉ là một cửa hàng mua sắm, mà là điểm đến của sự độc đáo và phong cách cá nhân. Bạn sẽ không chỉ cảm thấy thoải mái với những bộ trang phục tuyệt vời, mà còn trải nghiệm mua sắm thuận tiện và dễ dàng. Hãy để chúng tôi chăm sóc phong cách của bạn - vì bạn xứng đáng với sự đẳng cấp và tinh tế.</p>
                         </div>
                     </div>
                 </div>

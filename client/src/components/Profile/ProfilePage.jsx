@@ -5,9 +5,9 @@ import ProductDetail from '../ProductDetail/ProductDetail';
 import "./ProfilePage.css"
 
 export default function ProfilePage() {
-    
+
     return (
-            <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="main-box clearfix">
@@ -388,6 +388,6 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     )
 }

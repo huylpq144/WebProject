@@ -9,6 +9,7 @@ import Checkout from '../components/Checkout/Checkout';
 import HomePage from '../components/Homepage/Homepage';
 import ProductsPage from '../components/ProductsPage/ProductsPage';
 import UserProfile from '../components/userInfo/UserProfile';
+import ProfilePage from '../components/Profile/ProfilePage';
 
 export default function Router() {
     const routing = useRoutes([

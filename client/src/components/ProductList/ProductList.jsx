@@ -19,7 +19,7 @@ export default function ProductList(props) {
     return (
         <div>
             <div className="main-heading">
-                <h1>Fashion</h1>
+                <h1>FashionHub</h1>
             </div>
             <div className="container product-list">
                 <div id='product-list' className="row row-cols-1 row-cols-md-4 g-4">
