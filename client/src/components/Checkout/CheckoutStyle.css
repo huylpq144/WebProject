@@ -16,6 +16,19 @@
     animation: slideUp 2000ms ease;
 }
 
+#applyDiscountBtn button {
+    height: 37px !important;
+    font-size: 16px !important;
+}
+
+
+#checkoutPage .discountCode {
+    width: 200px;
+    border-radius: 10px;
+    border: black 2px solid;
+    margin: 0px 10px;
+}
+
 @keyframes slideUp {
     0% {
         -webkit-transform: translateY(100%);
@@ -49,10 +62,11 @@
 #checkoutPage input {
     width: 100%;
     min-height: 25px;
+    height: 30px;
     border: 0;
     font-size: 1rem;
     letter-spacing: .15rem;
-    font-family: "Arimo";
+    font-family: 'Poppins', sans-serif;
     margin-top: 5px;
     color: #8e2807;
     border-radius: 4px;

@@ -85,6 +85,37 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
+            <div className="main-heading" id='discountHeading'>
+                <h1>Available Discounts</h1>
+            </div>
+            <div id="discountGroup">
+                <div id="discountCode" className="row row-cols-1 row-cols-md-3 g-4 my-5 mx-3">
+                    <div className="col">
+                        <div className="card">
+                            <img src="/images/discountCode.jpg" className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">Apply this for <strong>25%</strong> discount !</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="card">
+                            <img src="/images/discountCode2.jpg" className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">Apply this for <strong>15%</strong> discount !</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="card">
+                            <img src="/images/discountCode3.jpg" className="card-img-top" alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">Apply this for <strong>30%</strong> discount !</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* <ProductList productsData={productsData} getProductDetail={getProductDetail} />
             <ProductDetail productDetail={productDetail} /> */}

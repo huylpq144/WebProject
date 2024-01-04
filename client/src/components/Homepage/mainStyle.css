@@ -12,6 +12,21 @@
     align-items: center;
 }
 
+#discountHeading {
+    height: 50px;
+}
+
+#discountCode {
+    margin: 0 !important;
+    margin: 0 auto;
+}
+
+#discountGroup {
+    width: 900px;
+    margin: 0 auto;
+}
+
+
 .main-heading h1 {
     font-weight: bold;
 }

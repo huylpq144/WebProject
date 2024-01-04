@@ -4,6 +4,7 @@ import "./CartStyle.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCartAction } from '../../store/actions/addToCartAction';
 import { removeProductFromCart } from '../../store/actions/addToCartAction';
+import axios from 'axios';
 
 export default function Cart() {
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function Cart() {
                 {renderProducts()}
                 <div className="card" style={{ height: "fit-content" }}>
                     <div className="card-body text-end">
-                        <button onClick={() => navigate("/checkout")} type="button" className="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                        <button onClick={() => handleCheckout()} type="button" className="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
                     </div>
                 </div>
             </div>
@@ -48,8 +49,8 @@ export default function Cart() {
     }
     const renderProducts = () => {
         return products.map((p) => {
-            const { id, name, image, cartQuantity, price } = p;
-            const total_price = cartQuantity * price;
+            const { id, name, image, quantity, price } = p;
+            const total_price = quantity * price;
             return (
                 <div className="card rounded-3 mb-4" key={id}>
                     <div className="card-body p-4">
@@ -65,7 +66,7 @@ export default function Cart() {
                                 <button className="btn btn-link px-2" onClick={() => removeProductHandler(id)}>
                                     <i className="fas fa-minus" />
                                 </button>
-                                <input id="form1" min={0} name="quantity" readOnly value={cartQuantity} type="number" className="form-control form-control-sm" />
+                                <input id="form1" min={0} name="quantity" readOnly value={quantity} type="number" className="form-control form-control-sm" />
                                 <button className="btn btn-link px-2" onClick={() => addToCartHandler(p)}>
                                     <i className="fas fa-plus" />
                                 </button>
@@ -81,6 +82,22 @@ export default function Cart() {
                 </div>
             )
         })
+    }
+    const handleCheckout = async () => {
+        const body = {
+            listItem: products
+        }
+        const accessToken = localStorage.getItem("accessToken");
+        const config = {
+            headers: {
+                'token': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+        const response = await axios.post("http://localhost:3001/api/order/create-order", body, config);
+        const orderNo = response.data.orderNo;
+        localStorage.setItem("orderNo", orderNo);
+        navigate("/checkout");
     }
     // console.log(products);
     return (

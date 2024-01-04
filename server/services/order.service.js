@@ -1,9 +1,9 @@
 const db = require('../models')
-const {Op, DATE} = require('sequelize')
+const { Op, DATE } = require('sequelize')
 const { v4: uuidv4 } = require('uuid');
-const {sendMail} = require('../services/sso.service')
+const { sendMail } = require('../services/sso.service')
 
-exports.createOrder = async(userId, listItem) => {
+exports.createOrder = async (userId, listItem) => {
     const Order = await db.Order;
     const Cart = await db.Cart;
     const CartItem = await db.CartItem
@@ -54,7 +54,7 @@ exports.createOrder = async(userId, listItem) => {
         totalAmount: cartUpdated.totalPrice,
         status: 1
     })
-    
+
     return {
         status: 200,
         message: "Order success",
@@ -62,7 +62,7 @@ exports.createOrder = async(userId, listItem) => {
     }
 };
 
-exports.confirmPayment = async(userId, paymentJson, orderNo) => {
+exports.confirmPayment = async (userId, paymentJson, orderNo) => {
     const Payment = await db.Payment;
     const User = await db.User;
 
@@ -73,12 +73,12 @@ exports.confirmPayment = async(userId, paymentJson, orderNo) => {
     })
 
     await Payment.update(paymentJson,
-    {
-        where: {
-            id: payment.id,
-            deletedAt: null
-        }
-    })
+        {
+            where: {
+                id: payment.id,
+                deletedAt: null
+            }
+        })
 
     const user = await User.findOne({
         where: {
@@ -160,18 +160,18 @@ exports.confirmPayment = async(userId, paymentJson, orderNo) => {
                 </div>
                 <body>
                 </html>`;
-    const mail = await sendMail('huylpq@gmail.com', "Xác Nhận Đơn Hàng", html)
+    const mail = await sendMail('voanhquan13072003@gmail.com', "Xác Nhận Đơn Hàng", html)
 
     await Payment.update({
         status: "PROCESSING"
     },
-    {
-        where: {
-            id: payment.id,
-            deletedAt: null
-        }
-    })
-    
+        {
+            where: {
+                id: payment.id,
+                deletedAt: null
+            }
+        })
+
     return {
         status: 200,
         message: "Order processing"
@@ -179,7 +179,7 @@ exports.confirmPayment = async(userId, paymentJson, orderNo) => {
 }
 
 
-exports.approveTransfer = async(orderNo) => {
+exports.approveTransfer = async (orderNo) => {
     const Payment = await db.Payment
     const User = await db.User
     const Order = await db.Order
@@ -189,14 +189,14 @@ exports.approveTransfer = async(orderNo) => {
     const payment = await Payment.update({
         status: "COMPLETED"
     },
-    {
-        where: {
-            orderNo: orderNo
-        }
-    })
+        {
+            where: {
+                orderNo: orderNo
+            }
+        })
 
     if (payment != 1) {
-        throw new Error ("Payment error")
+        throw new Error("Payment error")
     }
 
     const newPayment = await Payment.findOne({
@@ -269,13 +269,13 @@ exports.approveTransfer = async(orderNo) => {
                 </body>
                 </html>`;
 
-    const mail = await sendMail(user.email, "Xác Nhận Đơn Hàng Thành Công", html)
-    
+    const mail = await sendMail("voanhquan13072003@gmail.com", "Xác Nhận Đơn Hàng Thành Công", html)
+
     const order = await Order.findOne({
         where: {
             orderNo: orderNo
         }
-    })                      
+    })
     const listCartItem = await CartItem.findAll({
         attributes: ['productId', 'quantity'],
         where: {
@@ -283,11 +283,11 @@ exports.approveTransfer = async(orderNo) => {
         }
     })
     for (const cartItem of listCartItem) {
-        const {productId, quantity} = cartItem
+        const { productId, quantity } = cartItem
 
         await Product.decrement('inventory', {
             by: quantity,
-            where: {id: productId},
+            where: { id: productId },
             logging: console.log
         })
     };
@@ -299,21 +299,21 @@ exports.approveTransfer = async(orderNo) => {
     }
 }
 
-exports.cancelTransfer = async(orderNo) => {
+exports.cancelTransfer = async (orderNo) => {
     const Payment = await db.Payment
     const User = await db.User
 
     const payment = await Payment.update({
         status: "CANCEL"
     },
-    {
-        where: {
-            orderNo: orderNo
+        {
+            where: {
+                orderNo: orderNo
+            }
         }
-    }
     )
     if (payment != 1) {
-        throw new Error ("Payment error")
+        throw new Error("Payment error")
     }
 
     const newPayment = await Payment.findOne({
@@ -386,7 +386,7 @@ exports.cancelTransfer = async(orderNo) => {
                 </body>
                 </html>`;
 
-    const mail = await sendMail(user.email, "Xác Nhận Đơn Hàng Thất Bại", html)
+    const mail = await sendMail("voanhquan13072003@gmail.com", "Xác Nhận Đơn Hàng Thất Bại", html)
 
     return {
         status: 200,
@@ -395,7 +395,7 @@ exports.cancelTransfer = async(orderNo) => {
 }
 
 
-exports.getAllOrder = async(userId) => {
+exports.getAllOrder = async (userId) => {
     const Payment = await db.Payment
 
     const listPayment = await Payment.findAll({

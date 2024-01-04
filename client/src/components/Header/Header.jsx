@@ -220,12 +220,12 @@ export default function Header() {
                             <>
                                 <li>
                                     <button onClick={() => handleLogout()} className="dropdown-item" type="button">
-                                        <i class="fa-solid fa-right-from-bracket" style={{ color: '#000000' }}></i> Logout
+                                        <i className="fa-solid fa-right-from-bracket" style={{ color: '#000000' }}></i> Logout
                                     </button>
                                 </li>
                                 <li>
                                     <button onClick={() => navigate("/userProfile")} className="dropdown-item" type="button">
-                                        <i class="fa-solid fa-circle-info" style={{ color: '#000000' }}></i> Your Profile
+                                        <i className="fa-solid fa-circle-info" style={{ color: '#000000' }}></i> Your Profile
                                     </button>
                                 </li>
                             </>

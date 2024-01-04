@@ -12,9 +12,9 @@ export const addToCartReducer = (state = DEFAULT_STATE, action) => {
             // check if the product is already in the cart or not ?
             const index = currentCart.findIndex((element) => element.id === action.payload.id);
             if (index !== -1) {
-                currentCart[index].cartQuantity++;
+                currentCart[index].quantity++;
             } else {
-                const newProduct = { ...action.payload, cartQuantity: 1 };
+                const newProduct = { ...action.payload, quantity: 1 };
                 currentCart.push(newProduct);
             }
             state.cartList = currentCart;
@@ -33,8 +33,8 @@ export const addToCartReducer = (state = DEFAULT_STATE, action) => {
             const currentCart_2 = JSON.parse(JSON.stringify(state.cartList));
             const foundProduct = state.cartList.findIndex(product => product.id === id);
             if (foundProduct !== -1) {
-                if (currentCart_2[foundProduct].cartQuantity > 1) {
-                    currentCart_2[foundProduct].cartQuantity--;
+                if (currentCart_2[foundProduct].quantity > 1) {
+                    currentCart_2[foundProduct].quantity--;
                 } else {
                     currentCart_2.splice(foundProduct, 1);
                 }
