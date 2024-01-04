@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./HeaderStyle.css"
 // import { addToCartAction } from '../../store/actions/addToCartAction';
@@ -58,6 +58,24 @@ export default function Header() {
     // useState(() => {
     //     console.log(localStorage.getItem("accessToken"));
     // })
+    const handleAdminBtn = async () => {
+        const accessToken = localStorage.getItem("accessToken");
+        const config = {
+            headers: {
+                'token': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+        const response = await axios.get("http://localhost:3001/api/get-profile", config);
+        const role = response.data.row.role;
+        if (role === "admin") {
+            navigate("/productsAdmin");
+            return;
+        } else {
+            alert("Only admin can use this feature !");
+            return;
+        }
+    }
     return (
         <div id="storeHeader">
             <nav className="navbar navbar-expand-lg bg-dark">
@@ -233,6 +251,11 @@ export default function Header() {
                                         <i className="fa-solid fa-circle-info" style={{ color: '#000000' }}></i> Your Profile
                                     </button>
                                 </li>
+                                <li>
+                                    <button onClick={() => handleAdminBtn()} className="dropdown-item" type="button">
+                                        <i className="fa-solid fa-user-tie" style={{ color: '#000000' }}></i> Admin
+                                    </button>
+                                </li>
                             </>
 
                         ) : (
@@ -249,6 +272,7 @@ export default function Header() {
                                 </li>
                             </>
                         )}
+
                     </ul>
                 </div>
 
