@@ -25,6 +25,9 @@ export default function Checkout() {
     }
     const handlePurchase = async () => {
         const body = {
+            name: fullname,
+            phone: phone,
+            address: address,
             price: price,
             discountAmount: discountAmount,
             totalAmount: finalCost,
