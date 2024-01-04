@@ -60,7 +60,9 @@ exports.getUserProfile = async(userId) => {
 
 exports.editUserRole = async(userId, role) => {
     const User = await db.User;
-    const user = await User.update(role, {
+    const user = await User.update({
+        role: role
+    }, {
         where: {
             userId: userId
         }
