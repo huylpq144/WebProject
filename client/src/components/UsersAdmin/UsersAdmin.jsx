@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function UsersAdmin() {
     const [usersData, setUsersData] = useState([]);
+    const [role, setRole] = useState("Choose Role");
     useEffect(() => {
         const fetchProductsData = async () => {
             try {
@@ -16,7 +17,6 @@ export default function UsersAdmin() {
                 }
                 const response = await axios.get("http://localhost:3001/api/get-all-users", config);
                 setUsersData(response.data.rows);
-                // console.log(usersData);
                 return;
             } catch (error) {
                 console.log(error);
@@ -24,20 +24,86 @@ export default function UsersAdmin() {
         }
         fetchProductsData();
     }, [])
+    const handleEditRole = async (id) => {
+        if (role !== "admin") {
+            setRole("");
+        }
+        const body = {
+            userId: id,
+            role: role
+        }
+        const accessToken = localStorage.getItem("accessToken");
+        const config = {
+            headers: {
+                'token': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+        const response = await axios.post("http://localhost:3001/api/user/edit-user-role", body, config);
+        console.log(response);
+    }
     const renderUsers = () => {
+        console.log(usersData);
+
         return usersData.map((p) => {
             return (
                 <tr key={p.userId}>
-                    <td><img src={p.image} alt="Đầm dài bệt vai" /></td>
+                    <td>{p.username}</td>
                     <td>{p.name}</td>
-                    <td>{p.price} VNĐ</td>
-                    <td>{p.brand}</td>
-                    <td>{p.inventory}</td>
-                    <td className="">
-                        <button type="button" onClick={() => handleEditProductModal(p)} className="btn btn-warning m-2">Edit</button>
-                        <button type="button" onClick={() => handleDeleteBtn(p)} className="btn btn-danger">Delete</button>
+                    {p.role === "admin" ? (
+                        <td>
+                            Admin
+                        </td>
+                    ) : (
+                        <td>
+                            User
+                        </td>
+                    )}
+                    <td>{p.dayOfBirth}</td>
+                    <td>{p.email}</td>
+                    <td>{p.tel}</td>
+                    <td>{p.address}</td>
+                    <td className="d-flex" >
+                        <button type="button" style={{ height: "50px" }} className="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Role</button>
+                        <button type="button" style={{ height: "50px" }} className="btn btn-danger m-2">Delete</button>
+                    </td>
+                    <td className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Setting role</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                                </div>
+                                <div className="modal-body">
+                                    <div>
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                                                value={"admin"}
+                                                onChange={(e) => setRole(e.target.value)} defaultChecked />
+                                            <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                                Admin
+                                            </label>
+                                        </div>
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                                value={"user"}
+                                                onChange={(e) => setRole(e.target.value)} />
+                                            <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                                User
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" onClick={() => handleEditRole(p.id)} className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
+
             );
         });
     }
@@ -65,14 +131,13 @@ export default function UsersAdmin() {
                             </tr>
                         </thead>
                         <tbody>
-
+                            {renderUsers()}
                         </tbody>
                     </table>
                 </div>
                 <button id="deleteUserButton" className="delete-user-button">Delete User</button> {/* Adjusted button styling class */}
-                <footer className="pagination-footer">
-                    {/* Pagination goes here */}
-                </footer>
+
+
             </div>
 
 
