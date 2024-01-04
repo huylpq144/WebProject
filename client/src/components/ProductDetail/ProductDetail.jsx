@@ -10,6 +10,10 @@ export default function ProductDetail() {
     const { name, price, image, brand, inventory, describe } = pDetail;
     const dispatch = useDispatch();
     const addToCartHandler = () => {
+        if (inventory < 1) {
+            alert("Product out of stock !");
+            return;
+        }
         dispatch(addToCartAction(pDetail));
     }
     const [notification, setNotification] = useState(false);

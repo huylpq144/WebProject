@@ -126,9 +126,6 @@ export default function UsersAdmin() {
                 <header className="user-header">
                     <h1>Users</h1>
                 </header>
-                <div className="search-bar">
-                    <input type="text" placeholder="Search..." />
-                </div>
                 <div className="user-table">
                     <table>
                         <thead>

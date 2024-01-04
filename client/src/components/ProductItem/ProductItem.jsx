@@ -17,6 +17,11 @@ export default function ProductItem({ item }) {
             alert("You need to log in to add product to cart");
             return;
         }
+        // console.log(item.inventory);
+        if (item.inventory < 1) {
+            alert("Product out of stock !");
+            return;
+        }
         dispatch(addToCartAction(item));
     }
     const [notification, setNotification] = useState(false);
