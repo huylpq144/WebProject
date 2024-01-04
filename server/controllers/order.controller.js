@@ -20,10 +20,10 @@ exports.createOrder = async (req, res) => {
 exports.confirmPayment = async(req, res) => {
     try {
         const userId = req.user.userId;
-        const {price, discountAmount, totalAmount, paymentMethod, discountCode, shippingAddress, notes, orderNo} = req.body;
+        const {name, phone, address, price, discountAmount, totalAmount, paymentMethod, discountCode, shippingAddress, notes, orderNo} = req.body;
         const paymentJson = {
-            price, discountAmount, totalAmount, paymentMethod, 
-            discountCode, shippingAddress, notes
+            name, phone, address, price, discountAmount, 
+            totalAmount, paymentMethod, discountCode, shippingAddress, notes
         };
         const resData = await orderService.confirmPayment(userId, paymentJson, orderNo);
         return res.json(resData);

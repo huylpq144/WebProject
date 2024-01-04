@@ -51,6 +51,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
       field: 'role'
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'address'
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

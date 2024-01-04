@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Quanmysql@1307",
+    "password": "huy191784095",
     "database": "webproject",
     "host": "localhost",
     "dialect": "mysql"
