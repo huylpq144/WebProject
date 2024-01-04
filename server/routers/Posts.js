@@ -24,6 +24,8 @@ routers.get('/get-all-users', middleware.checkTokenAdmin, userRight.getAllUsers)
 routers.delete('/delete-user/:id', middleware.checkTokenAdmin, userRight.deleteUser)
 routers.post('/user/edit-profile', middleware.checkAuthAndToken, userRight.editProfile)
 routers.get('/user/profile/:id', middleware.checkAuthAndToken, userRight.getUserProfile)
+routers.post('/user/edit-user-role', middleware.checkTokenAdmin, userRight.editUserRole)
+
 
 //PRODUCT
 routers.post('/product/create-product-cate', middleware.checkTokenAdmin, product.createProductCate)
