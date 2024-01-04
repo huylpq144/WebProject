@@ -44,9 +44,9 @@ export default function Checkout() {
                 'Content-Type': 'application/json'
             }
         }
-
         const response = await axios.post("http://localhost:3001/api/order/confirm-payment", body, config);
         console.log(response);
+        navigate("/userProfile");
         return;
     }
 
@@ -224,6 +224,7 @@ export default function Checkout() {
                         <button type='button' onClick={() => handlePurchase()}>Purchase</button>
                         <button onClick={() => navigate("/")}>Back to cart</button>
                     </div>
+                    <div style={{ marginTop: "-5px", marginLeft: "45px" }}>(please wait seconds..)</div>
                 </form>
             </div>
         </div>

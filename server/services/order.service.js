@@ -165,7 +165,7 @@ exports.confirmPayment = async (userId, paymentJson, orderNo) => {
                 </div>
                 <body>
                 </html>`;
-    const mail = await sendMail('huylpq@gmail.com', `Xác Nhận Đơn Hàng ${payment.orderNo}`, html)
+    const mail = await sendMail('voanhquan13072003@gmail.com', `Xác Nhận Đơn Hàng ${payment.orderNo}`, html)
 
     await Payment.update({
         status: "PROCESSING"

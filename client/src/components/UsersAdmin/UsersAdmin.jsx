@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function UsersAdmin() {
     const [usersData, setUsersData] = useState([]);
-    const [role, setRole] = useState("Choose Role");
+    const [role, setRole] = useState("");
     useEffect(() => {
         const fetchProductsData = async () => {
             try {
@@ -32,6 +32,7 @@ export default function UsersAdmin() {
             userId: id,
             role: role
         }
+        console.log(body);
         const accessToken = localStorage.getItem("accessToken");
         const config = {
             headers: {
@@ -41,6 +42,18 @@ export default function UsersAdmin() {
         }
         const response = await axios.post("http://localhost:3001/api/user/edit-user-role", body, config);
         console.log(response);
+    }
+    const handleDelete = async (id) => {
+        const accessToken = localStorage.getItem("accessToken");
+        const config = {
+            headers: {
+                'token': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+            }
+        }
+        const response = await axios.delete(`http://localhost:3001/api/delete-user/${id}`, config);
+        // console.log(response);
+        return;
     }
     const renderUsers = () => {
         console.log(usersData);
@@ -65,7 +78,7 @@ export default function UsersAdmin() {
                     <td>{p.address}</td>
                     <td className="d-flex" >
                         <button type="button" style={{ height: "50px" }} className="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Role</button>
-                        <button type="button" style={{ height: "50px" }} className="btn btn-danger m-2">Delete</button>
+                        <button type="button" onClick={() => handleDelete(p.userId)} style={{ height: "50px" }} className="btn btn-danger m-2">Delete</button>
                     </td>
                     <td className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog">
@@ -97,7 +110,7 @@ export default function UsersAdmin() {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" onClick={() => handleEditRole(p.id)} className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                    <button type="button" onClick={() => handleEditRole(p.userId)} className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -135,9 +148,6 @@ export default function UsersAdmin() {
                         </tbody>
                     </table>
                 </div>
-                <button id="deleteUserButton" className="delete-user-button">Delete User</button> {/* Adjusted button styling class */}
-
-
             </div>
 
 

@@ -10,6 +10,8 @@ export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [retypePassword, setRetypePassword] = useState("");
+    const [phone, setPhone] = useState("");
+    const [name, setName] = useState("");
 
     const navigate = useNavigate();
 
@@ -17,18 +19,24 @@ export default function Signup() {
         e.preventDefault();
         // console.log(username, email, password, retypePassword);
         let isValid = true;
-        if (isEmpty(username)) {
+        // console.log(isEmpty(name));
+
+        if (isEmpty(name)) {
             showError("alertName", "(*) Please fill in the field");
             isValid = false;
+        }
+        if (isEmpty(username)) {
+            showError("alertUsername", "(*) Please fill in the field");
+            isValid = false;
         } else if (!isValidUsername(username)) {
-            showError("alertName", "(*) Username must not contain spaces, can only include letters, numbers, underscores, and cannot start with a number.");
+            showError("alertUsername", "(*) Username must not contain spaces, can only include letters, numbers, underscores, and cannot start with a number.");
             isValid = false;
         }
         if (isEmpty(email)) {
             showError("alertEmail", "(*) Please fill in the field");
             isValid = false;
         } else if (!isValidEmail(email)) {
-            showError("alertEmail", "(*) Please fill in the field");
+            showError("alertEmail", "(*) Incorrect Email");
             isValid = false;
         }
         if (isEmpty(password)) {
@@ -43,20 +51,32 @@ export default function Signup() {
             showError("alertRetypePassword", "(*) Retype password does not match");
             isValid = false;
         }
+        if (isEmpty(phone)) {
+            showError("alertPhone", "(*) Please fill in the field");
+            isValid = false;
+        } else if (!isValidPhoneNumber(phone)) {
+            showError("alertPhone", "(*) Phonenumber must have 10 numbers, starting with 0");
+            isValid = false;
+        }
+
         if (isValid) {
             hideAllError();
             // alert("Signup successfully");
             const UserData = {
                 username: username,
                 email: email,
-                password: password
+                password: password,
+                name: name,
+                tel: phone,
             };
             try {
                 const response = await axios.post("http://localhost:3001/api/register", UserData);
                 // console.log(response.data.status);
                 if (response.data.status === 400) {
                     // console.log("status 400");
-                    showError("alertName", "(*) Username already existed!");
+                    showError("alertUsername", "(*) Username or mail already existed!");
+                    showError("alertMail", "(*) Username or mail already existed!");
+
                     return;
                 } else {
                     navigate("/login");
@@ -81,6 +101,13 @@ export default function Signup() {
         }
         return false;
     }
+    const isValidPhoneNumber = (value) => {
+        let regex = /^(0\d{9})$/;
+        if (value.trim().match(regex)) {
+            return true;
+        }
+        return false;
+    }
     const showError = (id, message) => {
         $(`#${id}`).html(message);
     }
@@ -89,6 +116,8 @@ export default function Signup() {
     }
     const hideAllError = () => {
         hideError("alertName");
+        hideError("alertUsername");
+        hideError("alertPhone");
         hideError("alertEmail");
         hideError("alertPassword");
         hideError("alertRetypePassword");
@@ -106,29 +135,27 @@ export default function Signup() {
                     </div>
                     <form onSubmit={handleSignup}>
                         <div className="form-control">
-                            <label htmlFor="name" className='form-label'>Username</label>
+                            <label htmlFor="password">Name</label>
                             <input
-                                className='form-control'
-                                name='username'
+                                name='password'
                                 type="text"
-                                id="name"
-                                placeholder="Enter Your Username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)} />
+                                id="password"
+                                placeholder="Password"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)} />
                             <span id="alertName"></span>
                         </div>
                         <div className="form-control">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">Telephone</label>
                             <input
                                 name='password'
-                                type="password"
+                                type="text"
                                 id="password"
                                 placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)} />
-                            <span id="alertPassword"></span>
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)} />
+                            <span id="alertPhone"></span>
                         </div>
-
                         <div className="form-control">
                             <label htmlFor="email">Email</label>
                             <input
@@ -140,6 +167,19 @@ export default function Signup() {
                                 onChange={(e) => setEmail(e.target.value)} />
                             <span id="alertEmail"></span>
 
+                        </div>
+
+                        <div className="form-control">
+                            <label htmlFor="name" className='form-label'>Username</label>
+                            <input
+                                className='form-control'
+                                name='username'
+                                type="text"
+                                id="name"
+                                placeholder="Enter Your Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)} />
+                            <span id="alertUsername"></span>
                         </div>
                         <div className="form-control">
                             <label htmlFor="password">Password</label>
@@ -164,18 +204,6 @@ export default function Signup() {
                             <span id="alertRetypePassword"></span>
 
                             {/* <p>Retype password is incorrect</p> */}
-                        </div>
-
-                        <div className="form-control">
-                            <label htmlFor="password">Password</label>
-                            <input
-                                name='password'
-                                type="password"
-                                id="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)} />
-                            <span id="alertPassword"></span>
                         </div>
                         <button type="submit" className="signup-btn">Sign Up</button>
                     </form>

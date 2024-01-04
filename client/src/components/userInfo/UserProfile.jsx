@@ -10,6 +10,7 @@ export default function UserProfile() {
     const [dob, setDob] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
+    const [orders, setOrders] = useState([]);
     useEffect(() => {
         const getUserInfo = async () => {
             const accessToken = localStorage.getItem("accessToken");
@@ -22,6 +23,17 @@ export default function UserProfile() {
             const response = await axios.get("http://localhost:3001/api/get-profile", config);
             return response.data.row;
         }
+        const getOrdersInfo = async () => {
+            const accessToken = localStorage.getItem("accessToken");
+            const config = {
+                headers: {
+                    'token': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+            const response = await axios.get("http://localhost:3001/api/order/get-all-order", config);
+            return response.data.rows;
+        }
         const fetchData = async () => {
             const info = await getUserInfo();
             setId(info.userId);
@@ -30,9 +42,24 @@ export default function UserProfile() {
             setDob(info.dayOfBirth);
             setPhone(info.tel);
             setUsername(info.username);
+
+            const ordersFromDB = await getOrdersInfo();
+            setOrders(ordersFromDB);
         }
         fetchData();
     }, [])
+    const renderOrders = () => {
+        return orders.map((p) => {
+            return (
+                <tr key={p.id}>
+                    <td>{p.orderNo}</td>
+                    <td>{p.createdAt}</td>
+                    <td>{p.totalAmount} VNĐ</td>
+                    <td>{p.status}</td>
+                </tr>
+            );
+        });
+    }
 
     return (
         <div id='userInfo' className='userInfo'>
@@ -90,26 +117,12 @@ export default function UserProfile() {
                                             <tr>
                                                 <th>Order No</th>
                                                 <th>Date</th>
-                                                <th>Price</th>
+                                                <th>Total Amount</th>
                                                 <th>Order Status</th>
-                                                <th>Order Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>12/12/2020</td>
-                                                <td>12/12/2020</td>
-                                                <td className="order-status-delivered">Delivered</td>
-                                                <td id="order-total-1" />
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>12/12/2020</td>
-                                                <td>12/12/2020</td>
-                                                <td className="order-status-on-the-way">On the Way</td>
-                                                <td id="order-total-2" />
-                                            </tr>
+                                            {renderOrders()}
                                             {/* Repeat rows for each order */}
                                         </tbody>
                                     </table>

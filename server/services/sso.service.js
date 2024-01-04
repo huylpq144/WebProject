@@ -42,8 +42,8 @@ exports.register = async (userJson) => {
     const body = {
         email: userJson.email,
         username: userJson.username,
-        // name: userJson.name,
-        // tel: userJson.tel,
+        name: userJson.name,
+        tel: userJson.tel,
         // role: userJson.role,
         password: hashed
     };
@@ -124,10 +124,10 @@ exports.editProfile = async (userId, userInfo) => {
             name: userInfo?.name
         },
         {
-        where: {
-            userId: userId
-        }
-    })
+            where: {
+                userId: userId
+            }
+        })
 
 };
 
@@ -135,8 +135,8 @@ exports.sendMail = async (emailTo, subject, html) => {
     const transporter = nodeMailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'fitproject81@gmail.com',
-          pass: 'qmmh tjbt dbgw vofz',
+            user: 'fitproject81@gmail.com',
+            pass: 'qmmh tjbt dbgw vofz',
         },
     })
     return await transporter.sendMail({
@@ -144,5 +144,5 @@ exports.sendMail = async (emailTo, subject, html) => {
         to: emailTo,
         subject: subject,
         html: html
-    })    
+    })
 }
