@@ -165,7 +165,7 @@ exports.confirmPayment = async (userId, paymentJson, orderNo) => {
                 </div>
                 <body>
                 </html>`;
-    const mail = await sendMail('voanhquan13072003@gmail.com', `Xác Nhận Đơn Hàng ${payment.orderNo}`, html)
+    const mail = await sendMail('huylpq@gmail.com', `Xác Nhận Đơn Hàng ${payment.orderNo}`, html)
 
     await Payment.update({
         status: "PROCESSING"
@@ -274,7 +274,7 @@ exports.approveTransfer = async (orderNo) => {
                 </body>
                 </html>`;
 
-    const mail = await sendMail("huylpq@gmail.com", "Xác Nhận Đơn Hàng Thành Công", html)
+    const mail = await sendMail(`${user.email}`, "Xác Nhận Đơn Hàng Thành Công", html)
 
     const order = await Order.findOne({
         where: {
@@ -391,7 +391,7 @@ exports.cancelTransfer = async (orderNo) => {
                 </body>
                 </html>`;
 
-    const mail = await sendMail("voanhquan13072003@gmail.com", "Xác Nhận Đơn Hàng Thất Bại", html)
+    const mail = await sendMail(`${user.email}`, "Xác Nhận Đơn Hàng Thất Bại", html)
 
     return {
         status: 200,
@@ -407,7 +407,8 @@ exports.getAllOrder = async (userId) => {
         attributes: ['id', 'orderNo', 'price', 'discountAmount', 'totalAmount', 'paymentMethod', 'status', 'shippingAddress', 'notes', 'createdAt'],
         where: {
             userId: userId
-        }
+        },
+        order: [['createdAt', 'DESC']]
     });
     return {
         status: 200,
