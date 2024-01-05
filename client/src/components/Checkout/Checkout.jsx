@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./CheckoutStyle.css"
 import { useSelector } from 'react-redux';
+import $ from "jquery"
 import axios from 'axios';
 
 export default function Checkout() {
@@ -24,6 +25,30 @@ export default function Checkout() {
         return;
     }
     const handlePurchase = async () => {
+        let isValid = true;
+        if (isEmpty(fullname)) {
+            showError("alertName", "(*) Please fill in the field to continue purchase !");
+            isValid = false;
+        } else {
+            hideError("alertName");
+        }
+        if (isEmpty(phone)) {
+            showError("alertPhone", "(*) Please fill in the field to continue purchase !");
+            isValid = false;
+        } else {
+            hideError("alertPhone");
+        }
+        if (isEmpty(address)) {
+            showError("alertAddress", "(*) Please fill in the field to continue purchase !");
+            isValid = false;
+        } else {
+            hideError("alertAddress");
+        }
+        if (!isValid) {
+            return;
+        } else {
+            hideAllError();
+        }
         const body = {
             name: fullname,
             phone: phone,
@@ -71,6 +96,20 @@ export default function Checkout() {
                 break;
         }
     }
+    const isEmpty = (value) => {
+        return value.trim() === "";
+    }
+    const showError = (id, message) => {
+        $(`#${id}`).html(message);
+    }
+    const hideError = (id) => {
+        $(`#${id}`).html("");
+    }
+    const hideAllError = () => {
+        hideError("alertName");
+        hideError("alertPhone");
+        hideError("alertAddress");
+    }
 
     useEffect(() => {
         console.log(products);
@@ -97,6 +136,7 @@ export default function Checkout() {
                                 name="f-name"
                                 value={fullname}
                                 onChange={(e) => setFullname(e.target.value)} />
+                            <span className='alertMessage' id='alertName'></span>
                         </div>
                         <div>
                             <label htmlFor="l-name">Phone</label>
@@ -104,6 +144,7 @@ export default function Checkout() {
                                 name="l-name"
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)} />
+                            <span className='alertMessage' id="alertPhone"></span>
                         </div>
                     </div>
                     <div className="street">
@@ -113,6 +154,7 @@ export default function Checkout() {
                             name="address"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)} />
+                        <span className='alertMessage' id="alertAddress"></span>
                     </div>
                     <div className="street">
                         <label htmlFor="name">Notes</label>

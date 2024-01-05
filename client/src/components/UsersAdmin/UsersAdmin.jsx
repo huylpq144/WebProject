@@ -4,6 +4,8 @@ import axios from 'axios';
 
 export default function UsersAdmin() {
     const [usersData, setUsersData] = useState([]);
+    const [userId, setUserId] = useState("");
+    const [username, setUsername] = useState("");
     const [role, setRole] = useState("");
     useEffect(() => {
         const fetchProductsData = async () => {
@@ -24,7 +26,7 @@ export default function UsersAdmin() {
         }
         fetchProductsData();
     }, [])
-    const handleEditRole = async (id) => {
+    const handleEditRole = async (id, name) => {
         if (role !== "admin") {
             setRole("");
         }
@@ -32,6 +34,7 @@ export default function UsersAdmin() {
             userId: id,
             role: role
         }
+        console.log(name);
         console.log(body);
         const accessToken = localStorage.getItem("accessToken");
         const config = {
@@ -59,6 +62,11 @@ export default function UsersAdmin() {
         setRole(e.target.value);
         console.log(e.target.value);
     }
+    const handleShowingRoleModal = (id, username) => {
+        setUserId(id);
+        setUsername(username);
+        return;
+    }
     const renderUsers = () => {
         console.log(usersData);
 
@@ -81,45 +89,8 @@ export default function UsersAdmin() {
                     <td>{p.tel}</td>
                     <td>{p.address}</td>
                     <td className="d-flex" >
-                        <button type="button" style={{ height: "50px" }} className="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Role</button>
+                        <button type="button" onClick={() => handleShowingRoleModal(p.userId, p.username)} style={{ height: "50px" }} className="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Role</button>
                         <button type="button" onClick={() => handleDelete(p.userId)} style={{ height: "50px" }} className="btn btn-danger m-2">Delete</button>
-                    </td>
-                    <td className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Setting role</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                                </div>
-                                <div className="modal-body">
-                                    <div>
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                                                value={"admin"}
-                                                checked={role === "admin"}
-                                                onChange={(e) => handleChangeRoleInput(e)} />
-                                            <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                                Admin
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                                value={""}
-                                                checked={role !== "admin"}
-                                                onChange={(e) => handleChangeRoleInput(e)} />
-                                            <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                                User
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" onClick={() => handleEditRole(p.userId)} className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
                     </td>
                 </tr>
 
@@ -150,6 +121,44 @@ export default function UsersAdmin() {
                             {renderUsers()}
                         </tbody>
                     </table>
+                </div>
+                <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Setting role</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                            </div>
+                            <div className="modal-body">
+                                <div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                                            value={"admin"}
+                                            checked={role === "admin"}
+                                            onChange={(e) => handleChangeRoleInput(e)} />
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                            Admin
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                            value={""}
+                                            checked={role !== "admin"}
+                                            onChange={(e) => handleChangeRoleInput(e)} />
+                                        <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                            User
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" onClick={() => handleEditRole(userId, username)} className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
