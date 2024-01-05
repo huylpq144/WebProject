@@ -74,9 +74,6 @@ export default function Cart() {
                             <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                 <h5 className="mb-0">{total_price} VNĐ</h5>
                             </div>
-                            <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                <a href="#!" className="text-danger"><i className="fas fa-trash fa-lg" /></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,9 +105,6 @@ export default function Cart() {
                         <i onClick={() => navigate("/")} className="fa-solid fa-house fa-xl"></i>
                         <div className="d-flex justify-content-between align-items-center mb-4 my-2">
                             <h3 className="fw-normal mb-0 text-black">Shopping Cart</h3>
-                            <div>
-                                <p className="mb-0"><span className="text-muted">Sort by:</span> <a href="#!" className="text-body">price <i className="fas fa-angle-down mt-1" /></a></p>
-                            </div>
                         </div>
                         {renderCartPageContent()}
 

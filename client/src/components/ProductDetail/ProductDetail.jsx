@@ -44,7 +44,7 @@ export default function ProductDetail() {
                                             <h5 className="card-title product-detail-title fw-bold">{name}</h5>
                                             <p className="card-text"><strong>Brand: </strong>{brand}</p>
                                             <p className="card-text"><strong>Description: </strong>{describe}</p>
-                                            <p className="card-text"><strong>Price:</strong> {price}$</p>
+                                            <p className="card-text"><strong>Price:</strong> {price} VNĐ</p>
                                             <p className="card-text"><strong>Quantity:</strong> {inventory}</p>
                                         </div>
                                     </div>
