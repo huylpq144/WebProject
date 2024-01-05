@@ -55,6 +55,10 @@ export default function UsersAdmin() {
         // console.log(response);
         return;
     }
+    const handleChangeRoleInput = (e) => {
+        setRole(e.target.value);
+        console.log(e.target.value);
+    }
     const renderUsers = () => {
         console.log(usersData);
 
@@ -92,15 +96,17 @@ export default function UsersAdmin() {
                                         <div className="form-check">
                                             <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
                                                 value={"admin"}
-                                                onChange={(e) => setRole(e.target.value)} defaultChecked />
+                                                checked={role === "admin"}
+                                                onChange={(e) => handleChangeRoleInput(e)} />
                                             <label className="form-check-label" htmlFor="flexRadioDefault1">
                                                 Admin
                                             </label>
                                         </div>
                                         <div className="form-check">
                                             <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                                value={"user"}
-                                                onChange={(e) => setRole(e.target.value)} />
+                                                value={""}
+                                                checked={role !== "admin"}
+                                                onChange={(e) => handleChangeRoleInput(e)} />
                                             <label className="form-check-label" htmlFor="flexRadioDefault2">
                                                 User
                                             </label>
