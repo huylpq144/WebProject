@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import "./UsersAdminStyle.css"
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function UsersAdmin() {
     const [usersData, setUsersData] = useState([]);
     const [userId, setUserId] = useState("");
     const [username, setUsername] = useState("");
     const [role, setRole] = useState("");
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchProductsData = async () => {
             try {
@@ -102,6 +104,7 @@ export default function UsersAdmin() {
             <div className="user-page-wrapper">
                 <header className="user-header">
                     <h1>Users</h1>
+                    <button type="button" onClick={() => navigate("/productsAdmin")} class="btn btn-success">Back to products</button>
                 </header>
                 <div className="user-table">
                     <table>
