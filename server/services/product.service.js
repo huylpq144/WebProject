@@ -62,7 +62,8 @@ exports.searchProduct = async (keyword) => {
         where: {
             name: {
                 [Op.like]: keyword
-            }
+            },
+            deletedAt: null
         }
     })
     return {
